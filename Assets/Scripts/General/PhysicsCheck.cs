@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class PhysicsCheck : MonoBehaviour
 {
-    [Header("×´Ì¬")]
+    [Header("æ£€æµ‹çŠ¶æ€")]
     public bool isGround;
     public bool touchLeftWall;
     public bool touchRightWall;
 
-    [Header("ÊıÖµ")]
+    [Header("æ£€æµ‹æ•°å€¼")]
     public float checkRaduis;
     public Vector2 bottomOffset;
     public Vector2 leftOffset;
     public Vector2 rightOffset;
 
     public LayerMask groundLayer;
+    
 
     private void Update()
     {
@@ -24,10 +25,10 @@ public class PhysicsCheck : MonoBehaviour
 
     public void Check()
     {
-        //¼ì²âµØÃæ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         isGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, checkRaduis, groundLayer);
 
-        //Ç½ÌåÅĞ¶Ï
+        //Ç½ï¿½ï¿½ï¿½Ğ¶ï¿½
         touchLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, checkRaduis, groundLayer);
         touchRightWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, checkRaduis, groundLayer);
     }

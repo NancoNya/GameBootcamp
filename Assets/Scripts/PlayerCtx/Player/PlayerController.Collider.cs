@@ -4,9 +4,9 @@ using UnityEngine;
 
 public partial class PlayerController
 {
-    
-    
-    public bool CheckGrounded() => CheckGrounded(Vector2.zero);
+
+
+    public bool CheckGrounded() => CheckGrounded(new Vector2(-Facing * .1f, 0f)); 
     
     public bool CheckGrounded(Vector2 offset)
     {

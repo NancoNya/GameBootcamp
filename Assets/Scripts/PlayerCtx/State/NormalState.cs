@@ -14,10 +14,10 @@ public class NormalState : PlayerState
 
     public override EActionState Update(float deltaTime)
     {
-        Debug.Log("Normal State");
+       // Debug.Log("Normal State");
         if (playerController.ClimbCheck(playerController.Facing) && (int)GameInput.Aim.value.x == playerController.Facing && playerController.ClimbCooldownTimer <= 0)
         {
-            Debug.Log("Enter Climb");
+            //Debug.Log("Enter Climb");
             return EActionState.climb;
         }
 

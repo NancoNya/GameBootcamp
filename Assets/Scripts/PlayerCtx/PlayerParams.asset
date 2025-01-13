@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6d259766720a248bbfeef641f3b979, type: 3}
+  m_Name: PlayerParams
+  m_EditorClassIdentifier: 
+  colliderSize: {x: 0.5, y: 0.5}
+  MaxDectedGround: 0.3
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  RunReduce: 40
+  RunAccel: 100
+  AirMult: 0.65
+  MaxRun: 9
+  JumpGraceTimer: 0.1
+  JumpBoost: 4
+  JumpSpeed: 10.5
+  VarJumpTimer: 0.2
+  MaxFall: -16
+  ShreldFallSpeed: 4
+  Gravity: 90
+  MaxJumps: 3
+  SecondJumpSpeed: 15
+  ClimbCheckDist: 2
+  ClimbGrabYMult: 1
+  WallJumpForceTime: 0.16
+  WallJumpHSpeed: 13
+  SuperJumpH: 26
+  SuperWallJumpH: 17
+  SuperWallJumpSpeed: 16
+  DashSpeed: 24
+  DashTime: 0.15
+  MaxDashes: 1
+  EndDashSpeed: 16
+  DashCooldown: 0.2
+  DashRefillCooldown: 0.1
+  AttackCooldownTimer: 0.2
+  AttackDecreaseX: 0
+  AttackDecreaseY: 0
+  AttackSpeed: 1.3
+  MaxSlideSpeed: 20
+  ClimbSpeed: 2
+  ClimbCooldownTimer: 0
+  ClimbDecreasesY: 1
+  ClimbHopX: 10
+  ClimbHopY: 12
+  ClimbHopForceTime: 0.2

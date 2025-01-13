@@ -26,7 +26,7 @@ public partial class PlayerController
 
     public bool ClimbCheck(int dir)
     {
-        return Physics2D.OverlapBox((Vector2)player.transform.position + Vector2.right * dir * (contants.ClimbCheckDist * 0.1f + 0.02f) + Vector2.up * 0.1f, player.boxCollider.size,
+        return Physics2D.OverlapBox((Vector2)player.transform.position + Vector2.right * dir * (contants.ClimbCheckDist * 0.1f + 0.02f) + Vector2.up * 0.2f, player.boxCollider.size,
              0f, contants.groundLayer);
     }
     

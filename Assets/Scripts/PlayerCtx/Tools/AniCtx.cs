@@ -37,4 +37,6 @@ public class AniCtx
     public void ST(string name) => ani.SetTrigger(name);
     
     public void SI(string name, int value) => ani.SetInteger(name, value);
+
+    public void RT(string name) => ani.ResetTrigger(name);
 }

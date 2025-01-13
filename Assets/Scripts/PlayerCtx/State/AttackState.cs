@@ -13,6 +13,8 @@ public class AttackState : PlayerState
         
         playerController.SpeedY = 0;
         playerController.SpeedX = 0;
+        
+        playerController.aniCtx.RT("attackExit");
        
     }
 

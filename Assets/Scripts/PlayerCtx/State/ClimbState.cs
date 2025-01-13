@@ -21,7 +21,7 @@ public class ClimbState : PlayerState
   
     public override EActionState Update(float deltaTime)
     {
-        Debug.Log(playerController.Facing);
+        Debug.Log("Climb State");
 
         if (!playerController.ClimbCheck(playerController.Facing))
         {
@@ -41,6 +41,7 @@ public class ClimbState : PlayerState
 
         if (playerController.SlipCheck())
         {
+            Debug.Log("SlipCheck");
             ClimbHop();
             return EActionState.normal;
         }

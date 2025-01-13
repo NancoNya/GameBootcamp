@@ -1299,36 +1299,31 @@ MonoBehaviour:
   playerRigidbody: {fileID: 0}
   animator: {fileID: 0}
   contants: {fileID: 11400000, guid: 673ddb09535def140bb5f52ad3b3a5f1, type: 2}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
---- !u!1 &1577373141
-GameObject:
-=======
+
 --- !u!114 &1566955172
 MonoBehaviour:
->>>>>>> Stashed changes
-=======
---- !u!114 &1566955172
-MonoBehaviour:
->>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+  m_GameObject: {fileID: 1566955158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e7b8ab2e1a5954aad26e0c64b49d61, type: 3}
+  m_Name: Eblue
+  m_EditorClassIdentifier: 
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1577373142}
   - component: {fileID: 1577373143}
   - component: {fileID: 1577373144}
   m_Layer: 0
-  m_Name: Eblue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+
 --- !u!4 &1577373142
 Transform:
   m_ObjectHideFlags: 0
@@ -1523,28 +1518,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
-=======
-=======
->>>>>>> Stashed changes
-  m_GameObject: {fileID: 1566955158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6e7b8ab2e1a5954aad26e0c64b49d61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
-  attackPower: 0
-  defensePower: 0
-  invulnerableDuration: 0
-  invulnerable: 0
-  OnTakeDamage:
-    m_PersistentCalls:
-      m_Calls: []
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
+m_GameObject: {fileID: 1566955158}
+m_Enabled: 1
+m_EditorHideFlags: 0
+m_Script: {fileID: 11500000, guid: e6e7b8ab2e1a5954aad26e0c64b49d61, type: 3}
+m_Name: 
+m_EditorClassIdentifier: 
+maxHealth: 0
+currentHealth: 0
+attackPower: 0
+defensePower: 0
+invulnerableDuration: 0
+invulnerable: 0
+OnTakeDamage:
+  m_PersistentCalls:
+    m_Calls: []
+
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1554,3 +1544,4 @@ SceneRoots:
   - {fileID: 1566955162}
   - {fileID: 1577373142}
   - {fileID: 1138749367}
+

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,24 +8,24 @@ public class Enemy : MonoBehaviour
     protected Animator anim;
     PhysicsCheck physicsCheck;
 
-    [Header("»ù±¾²ÎÊı")]
+    [Header("åŸºæœ¬å‚æ•°")]
     public float normalSpeed;
     public float chaseSpeed;
     public float currentSpeed;
     public Vector3 faceDir;
 
-    [Header("¼ì²â")]
+    [Header("æ£€æµ‹")]
     public Vector2 centerOffset;
     public Vector2 checkSize;
     public float checkDistance;
     public LayerMask attackLayer;
 
-    [Header("¼ÆÊ±Æ÷")]
+    [Header("è®¡æ—¶å™¨")]
     public float waitTime;
     public float waitTimeCounter;
     public bool wait;
 
-    [Header("×·Öğ²ÎÊı")]
+    [Header("è¿½é€å‚æ•°")]
     public float distanceToPlayer;
     public float detectionRadius;
 
@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour
                 wait = false;
                 waitTimeCounter = waitTime;
                 anim.SetBool("walk", true);
-                transform.localScale = new Vector3(faceDir.x, 1, 1); ;  //µÈ´ıºóÔÙ×ªÉí
+                transform.localScale = new Vector3(faceDir.x, 1, 1); ;  //ç­‰å¾…åå†è½¬èº«
             }
         }
     }

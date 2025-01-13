@@ -67,7 +67,7 @@ public class FiniteStateMachine<S> where S : PlayerState
     {
         states[(int)s.stateStyle] = s;
     }
-
+  
     public int State
     {
         get =>  this.currState;

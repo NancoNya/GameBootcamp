@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoSigleton<Player>
 {
     public PlayerController playerController;
     public BoxCollider2D boxCollider;

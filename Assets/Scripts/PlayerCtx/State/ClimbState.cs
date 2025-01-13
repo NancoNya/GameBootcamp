@@ -41,7 +41,7 @@ public class ClimbState : PlayerState
 
         if (playerController.SlipCheck())
         {
-            Debug.Log("SlipCheck");
+            //Debug.Log("SlipCheck");
             ClimbHop();
             return EActionState.normal;
         }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//using UnityEngine.InputSystem;
+using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
 public class Character : MonoBehaviour
@@ -12,12 +12,15 @@ public class Character : MonoBehaviour
     public float currentHealth;
     public float attackPower;
     public float defensePower;
-    public float moveSpeed;
 
     [Header("受伤无敌")]
     public float invulnerableDuration;
     private float invulnerableCounter;
     public bool invulnerable;
+
+    public bool OneHit_Kill;
+    public bool DoubleHurt;
+    public bool ThreeHurt;
 
     public UnityEvent<Transform> OnTakeDamage;
 
@@ -34,22 +37,27 @@ public class Character : MonoBehaviour
             invulnerable = false;
     }
 
-    public void TakeDamage(Attack attacker)
+    public void GetDamage(float damage)
     {
-        if (invulnerable)
+        if (invulnerable || currentHealth <= 0)
             return;
 
-        if (currentHealth - attacker.attackPower > 0) //满足受伤条件
+        //if (currentHealth - attacker.attackPower > 0) //满足受伤条件
         {
-            currentHealth -= attacker.attackPower;
+            var Damage = damage;
+            if (DoubleHurt) Damage *= 2;
+            if (ThreeHurt) Damage *= 3;
+            currentHealth = Mathf.Max(0, currentHealth - Damage);
             TriggerInvulnerable();
 
-            OnTakeDamage?.Invoke(attacker.transform);
+           // OnTakeDamage?.Invoke();
         }
-        else
+        //else
         {
-            currentHealth = 0;
-            //死亡
+            if (currentHealth <= 0)
+            {
+                //死亡
+            }
         }
     }
 

@@ -6,8 +6,8 @@ public class Attack : MonoBehaviour
 {
     public int attackPower;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    /*private void OnTriggerStay2D(Collider2D collision)
     {
         collision.GetComponent<Character>()?.TakeDamage(this);
-    }
+    }*/
 }

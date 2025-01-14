@@ -8,7 +8,6 @@ public class NormalState : PlayerState
 
     public override void Start()
     {
-        //Debug.Log("idle start");
         playerController.MaxFall = playerController.contants.MaxFall;
     }
 
@@ -17,8 +16,8 @@ public class NormalState : PlayerState
        // Debug.Log("Normal State");
         if (playerController.ClimbCheck(playerController.Facing) && (int)GameInput.Aim.value.x == playerController.Facing && playerController.ClimbCooldownTimer <= 0)
         {
-            //Debug.Log("Enter Climb");
-            return EActionState.climb;
+            if (!playerController.ClimbTopCheck())
+                return EActionState.climb;
         }
 
         if (playerController.CanDash)
@@ -40,12 +39,12 @@ public class NormalState : PlayerState
             return EActionState.attack;
         }
         
-        if (GameInput.Jump.Pressed() && playerController.CanSecondJump)
+        if (GameInput.Jump.Pressed() && playerController.CanSecondJump && !playerController.OnGround)
         {
             playerController.OnGround = true;
             playerController.SecondJump();
             playerController.CanSecondJump = false;
-            Debug.Log("SecondJump");
+            //Debug.Log("SecondJump");
         }
         
         if (!playerController.OnGround && !GameInput.Jump.Pressed())

@@ -21,14 +21,14 @@ public class ClimbState : PlayerState
   
     public override EActionState Update(float deltaTime)
     {
-        Debug.Log("Climb State");
+        //Debug.Log("Climb State");
 
-        if (!playerController.ClimbCheck(playerController.Facing))
+        if (!playerController.ClimbCheck(playerController.Facing) || playerController.ClimbTopCheck())
         {
             return EActionState.normal;
         }
         
-        if ((int)GameInput.Aim.value.x == playerController.Facing && !ClimbEnd)
+        if ((int)GameInput.Aim.value.x == playerController.Facing && !ClimbEnd && !playerController.ClimbTopCheck())
         {
             playerController.SpeedY = Mathf.Max(0,
                 Mathf.MoveTowards(playerController.SpeedY, 0f, playerController.contants.ClimbDecreasesY * deltaTime));

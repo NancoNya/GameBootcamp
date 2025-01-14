@@ -30,6 +30,11 @@ public partial class PlayerController
              0f, contants.groundLayer);
     }
     
+    public bool ClimbTopCheck()
+    {
+        return Physics2D.OverlapPoint((Vector2)player.transform.position + player.boxCollider.size / 2 + Vector2.up * 0.4f, contants.groundLayer);
+    }
+    
     public bool SlipCheck(float addY = 0)
     {
         int direct = Facing;

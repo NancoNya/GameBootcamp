@@ -18,6 +18,8 @@ public class DashState : PlayerState
         playerController.DashCooldownTimer = playerController.contants.DashCooldown;
         playerController.DashRefillCooldownTimer = playerController.contants.DashRefillCooldown;
         
+        playerController.EffectControl.Freeze(0.05f);
+        
         beforeDashSpeed = playerController.SpeedX;
         
         playerController.SpeedX = 0f;

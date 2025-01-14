@@ -47,7 +47,7 @@ public struct VisualButton
         this.consumed = false;
         bufferCount -= deltaTime;
         bool flag = false;
-        if (Input.GetKey(key))
+        if (Input.GetKeyDown(key))
         {
             bufferCount = bufferTime;
             flag = true;
@@ -95,5 +95,8 @@ public class GameInput
     public static void Update(float deltaTime)
     {
         Jump.Update(deltaTime);
+        Dash.Update(deltaTime);
+        Attack.Update(deltaTime);
+        Slide.Update(deltaTime);
     }
 }

@@ -7,6 +7,7 @@ public partial class PlayerController
 {
    public Player player;
    public AniCtx aniCtx;
+   public IEffectControl EffectControl;
    
    public Contants contants;
    public JumpGrace jumpGrace;
@@ -74,14 +75,11 @@ public partial class PlayerController
       this.player = player;
       this.contants = player.contants;
       Facing = (int)Facings.Right;
-   }
-   
-   public FiniteStateMachine<PlayerState> stateMachine;
-
-   public void Init()
-   {
+      
       stateMachine = new FiniteStateMachine<PlayerState>();
       aniCtx = new AniCtx(this);
+      EffectControl = player.GetComponent<IEffectControl>();
+      //if (EffectControl != null) Debug.Log("Effect control found");
       
       stateMachine.AddState(new NormalState(this));
       stateMachine.AddState(new ClimbState(this));
@@ -92,20 +90,17 @@ public partial class PlayerController
       jumpGrace = new JumpGrace(this, true);
 
       AttackComobo = 1;
+      CanSecondJump = false;
    }
-
+   
+   public FiniteStateMachine<PlayerState> stateMachine;
+   
    public EActionState Dash()
    {
       Dashes = Math.Max(0, Dashes - 1);
       GameInput.Dash.ConsumeBuffer();
       return EActionState.dash;
    }
-
-   /*public bool CanJump()
-   {
-      jumps = Math.Max(1, jumps - 1);
-      return jumps > 1;
-   }*/
 
    public void Update(float deltaTime)
    {
@@ -153,11 +148,7 @@ public partial class PlayerController
       {
          ClimbCooldownTimer -= deltaTime;
       }
-
-      /*if (OnGround)
-      {
-         RefillJump();
-      }*/
+      
    }
 
    public void FixedUpdate()
@@ -174,7 +165,6 @@ public partial class PlayerController
       VarJumpTimer = contants.VarJumpTimer;
       
       aniCtx.ST(AniPara.Jump.ToString());
-      //Debug.Log("Jump");
       
       SpeedY = contants.JumpSpeed;
       VarJumpSpeed = SpeedY;
@@ -250,15 +240,4 @@ public partial class PlayerController
 
       return false; 
    }
-
-   /*private bool RefillJump()
-   {
-      if (jumps < contants.MaxJumps)
-      {
-         jumps = contants.MaxJumps;
-         return true;
-      }
-      
-      return false;
-   }*/
 }

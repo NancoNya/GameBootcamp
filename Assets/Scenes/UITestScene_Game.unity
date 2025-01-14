@@ -3123,22 +3123,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb267dc835d7ea40b62bf7293ad5e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  global: 0
   boxCollider: {fileID: 0}
   playerRigidbody: {fileID: 0}
   animator: {fileID: 0}
   contants: {fileID: 11400000, guid: 673ddb09535def140bb5f52ad3b3a5f1, type: 2}
+  FreezeCooldownTimer: 0
 --- !u!1 &1576721402
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566955158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6e7b8ab2e1a5954aad26e0c64b49d61, type: 3}
-  m_Name: Eblue
-  m_EditorClassIdentifier: 
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1576721403}

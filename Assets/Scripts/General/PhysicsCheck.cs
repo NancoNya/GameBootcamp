@@ -25,8 +25,8 @@ public class PhysicsCheck : MonoBehaviour
 
     public void Check()
     {
-        //������
-        isGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, checkRaduis, groundLayer);
+        isGround = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(bottomOffset.x * transform.localScale.normalized.x, bottomOffset.y), checkRaduis, groundLayer);
+          
 
         //ǽ���ж�
         touchLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, checkRaduis, groundLayer);
@@ -35,7 +35,7 @@ public class PhysicsCheck : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffset, checkRaduis);
+        Gizmos.DrawWireSphere((Vector2)transform.position+bottomOffset*transform.localScale.normalized, checkRaduis);
         Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, checkRaduis);
         Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, checkRaduis);
     }

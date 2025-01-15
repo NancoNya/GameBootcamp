@@ -26,15 +26,16 @@ public class Boss : Enemy
     void OnAnimationComplete()
     {
         int randomValue = UnityEngine.Random.Range(0, 2);
+        Vector3 targetPosition=Vector3.zero;
         if (randomValue == 0)
         {
-            transform.position=attacker.transform.position+new Vector3(5,0,0);
+            targetPosition=attacker.transform.position+new Vector3(5,0,0);
         }
         else if (randomValue == 1)
         {
-            transform.position=attacker.transform.position+new Vector3(-5,0,0);
+            targetPosition=attacker.transform.position+new Vector3(-5,0,0);
         }
-        
+        transform.position = new Vector3(targetPosition.x, transform.position.y, transform.position.z);
         
         if (attacker.position.x >= transform.position.x)
         {

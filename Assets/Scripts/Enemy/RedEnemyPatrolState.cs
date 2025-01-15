@@ -5,12 +5,12 @@ using Random = Unity.Mathematics.Random;
 
 public class RedEnemyPatrolState : EnemyBaseState
 {
-    private int randomNumber;
+   
     public override void OnEnter(Enemy enemy)
     {
         currentEnemy = enemy;
         currentEnemy.currentSpeed = currentEnemy.normalSpeed;
-        currentEnemy.StartCoroutine(GenerateRandomNumber());
+ 
 
     }
 
@@ -31,12 +31,8 @@ public class RedEnemyPatrolState : EnemyBaseState
         }
         else
         {
-            if (randomNumber > 8)
-            {
-                currentEnemy.wait = true;
-                currentEnemy.currentSpeed = 0;
-                currentEnemy.anim.SetBool("walk",false);
-            }
+            
+            currentEnemy.anim.SetBool("walk",true);
         }
     }
 
@@ -47,17 +43,10 @@ public class RedEnemyPatrolState : EnemyBaseState
 
     public override void OnExit()
     {
-        currentEnemy.StopCoroutine(GenerateRandomNumber());
+       
+        currentEnemy.anim.SetBool("walk",false);
     }
-    private IEnumerator GenerateRandomNumber()
-    {
-        Random random = new Random((uint)System.DateTime.Now.Ticks);
-        while (true)
-        {
-            randomNumber = random.NextInt(0, 11); // 生成0到10之间的随机数
-            yield return new WaitForSeconds(2f); // 每两秒执行一次
-        }
-    }
+
 
 
 }

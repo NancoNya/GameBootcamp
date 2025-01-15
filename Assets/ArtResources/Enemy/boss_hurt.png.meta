@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2c4350855f448144880efb20dcc7ec2
+guid: 4ed4ff5486d013e4f9e7360e3c116052
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss_attack2_0
+      name: boss_hurt_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd38cc7dc89fe744ba9e6ea2a1f6577f
-      internalID: 1030091062
+      spriteID: 1c9edc3704ec058499f6620b4769071d
+      internalID: -1717885052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_1
+      name: boss_hurt_1
       rect:
         serializedVersion: 2
         x: 48
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: faae6dc5816363c45984e8337b1cf9ca
-      internalID: -652779627
+      spriteID: da60d20c75cc1e1419b3e262bf055d1f
+      internalID: -704741808
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_2
+      name: boss_hurt_2
       rect:
         serializedVersion: 2
         x: 96
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27a3184618bfbc141937e1af5bfb4d79
-      internalID: 2036098547
+      spriteID: 2c94503caae206342aaea00cb7b75238
+      internalID: -1307617647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_3
+      name: boss_hurt_3
       rect:
         serializedVersion: 2
         x: 144
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3953389e0b115a4385fce13101f3392
-      internalID: 61082835
+      spriteID: e56c0593b810bcb449706f188e59aea0
+      internalID: 310849457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_4
+      name: boss_hurt_4
       rect:
         serializedVersion: 2
         x: 192
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc5cf4354ff1bb44992f250ccf71b1f8
-      internalID: -1014541284
+      spriteID: 310bcc042fae1ea45943b1a89cd916dd
+      internalID: -1837728755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_5
+      name: boss_hurt_5
       rect:
         serializedVersion: 2
         x: 240
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69eec97c7704e6a41b60767b887a695a
-      internalID: -99487460
+      spriteID: ac40afcdeead8c64caa99915790f3af9
+      internalID: -241603769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_6
+      name: boss_hurt_6
       rect:
         serializedVersion: 2
         x: 288
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c35d9a3da93eb2041a86c72181993b1d
-      internalID: 1212899243
+      spriteID: 4e164dfadea4b3e41b3a6ef9187f6daf
+      internalID: 1063095429
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_7
+      name: boss_hurt_7
       rect:
         serializedVersion: 2
         x: 336
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09b9d9b5a1048dd41883d65851e794e5
-      internalID: 305314290
+      spriteID: d1af9aaead2e4b94e80eb62e9cd8e2f1
+      internalID: 1500052604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_8
+      name: boss_hurt_8
       rect:
         serializedVersion: 2
         x: 384
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6c585a639204b64db2083ca0f8a3b75
-      internalID: 1563254204
+      spriteID: e27221833df908a4bae68458e8133a26
+      internalID: -1261695380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_9
+      name: boss_hurt_9
       rect:
         serializedVersion: 2
         x: 432
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdd7809eca63a4549b2098117e062192
-      internalID: 41174146
+      spriteID: b102e873b4b88d940a2b8f82b4378392
+      internalID: 535597983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_10
+      name: boss_hurt_10
       rect:
         serializedVersion: 2
         x: 480
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b37b87b7c24e69344889383d9bfcc601
-      internalID: 2091771566
+      spriteID: 938151970c9922e4b99c55908e3443a6
+      internalID: 1741559258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_11
+      name: boss_hurt_11
       rect:
         serializedVersion: 2
         x: 528
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2bba7d16cf1c6a4c8936d272fe0a169
-      internalID: -1764593452
+      spriteID: c8e73d22e0ba60a4295b40e91a005733
+      internalID: -616112967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_12
+      name: boss_hurt_12
       rect:
         serializedVersion: 2
         x: 576
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b02a5758ed9893847a11eaf6536b3eb5
-      internalID: 777442631
+      spriteID: 1cda67ed85a56b64d9766397d1b5f2bb
+      internalID: 39269505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_13
+      name: boss_hurt_13
       rect:
         serializedVersion: 2
         x: 624
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b8a9474eedc00742a4f887934eb9c4c
-      internalID: -146434871
+      spriteID: a08d73be08e5a01478fb40974e13511b
+      internalID: -1971875939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_14
+      name: boss_hurt_14
       rect:
         serializedVersion: 2
         x: 672
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a7ca2f05bb9a884e815a718f56e38cd
-      internalID: 1903728993
+      spriteID: 7ed8f3e54ba02a94aa08c9192ea86406
+      internalID: -555834825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_15
+      name: boss_hurt_15
       rect:
         serializedVersion: 2
         x: 720
@@ -452,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0252863ab23fad4f88cc046d41e32c2
-      internalID: 713658144
+      spriteID: 2d01c42b3aa078944ac7f08b77709090
+      internalID: -528470294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_16
+      name: boss_hurt_16
       rect:
         serializedVersion: 2
         x: 768
@@ -473,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8210999d8294e254b907d86ae86d6476
-      internalID: 625511665
+      spriteID: 21b9ee6920186d041ab4ccabe94c7721
+      internalID: 2079715147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_17
+      name: boss_hurt_17
       rect:
         serializedVersion: 2
         x: 816
@@ -494,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6a1c05258c8b2d49b9e0309e9e34b53
-      internalID: 1190737924
+      spriteID: ab7cebbf9861eda4792f2fc0a299ed39
+      internalID: -1766553182
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_attack2_18
+      name: boss_hurt_18
       rect:
         serializedVersion: 2
         x: 864
@@ -515,8 +515,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26f6646d837d010458757590b621e011
-      internalID: -453402824
+      spriteID: fa186e7b13926244e879e65b215cfde1
+      internalID: -1835680698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_hurt_19
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 0
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96e4efcf339033d408c0b49e33650297
+      internalID: -836180379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_hurt_20
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe74b51b3738e564cbd241e5bcd62430
+      internalID: 1444346103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_hurt_21
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 0
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e76918fb7591c74a9de371114b465b1
+      internalID: 1531248467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_hurt_22
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82b0bae06f300ef47abfada993f68967
+      internalID: 412448756
       vertices: []
       indices: 
       edges: []
@@ -532,25 +616,29 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      boss_attack2_0: 1030091062
-      boss_attack2_1: -652779627
-      boss_attack2_10: 2091771566
-      boss_attack2_11: -1764593452
-      boss_attack2_12: 777442631
-      boss_attack2_13: -146434871
-      boss_attack2_14: 1903728993
-      boss_attack2_15: 713658144
-      boss_attack2_16: 625511665
-      boss_attack2_17: 1190737924
-      boss_attack2_18: -453402824
-      boss_attack2_2: 2036098547
-      boss_attack2_3: 61082835
-      boss_attack2_4: -1014541284
-      boss_attack2_5: -99487460
-      boss_attack2_6: 1212899243
-      boss_attack2_7: 305314290
-      boss_attack2_8: 1563254204
-      boss_attack2_9: 41174146
+      boss_hurt_0: -1717885052
+      boss_hurt_1: -704741808
+      boss_hurt_10: 1741559258
+      boss_hurt_11: -616112967
+      boss_hurt_12: 39269505
+      boss_hurt_13: -1971875939
+      boss_hurt_14: -555834825
+      boss_hurt_15: -528470294
+      boss_hurt_16: 2079715147
+      boss_hurt_17: -1766553182
+      boss_hurt_18: -1835680698
+      boss_hurt_19: -836180379
+      boss_hurt_2: -1307617647
+      boss_hurt_20: 1444346103
+      boss_hurt_21: 1531248467
+      boss_hurt_22: 412448756
+      boss_hurt_3: 310849457
+      boss_hurt_4: -1837728755
+      boss_hurt_5: -241603769
+      boss_hurt_6: 1063095429
+      boss_hurt_7: 1500052604
+      boss_hurt_8: -1261695380
+      boss_hurt_9: 535597983
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

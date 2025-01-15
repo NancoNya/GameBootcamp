@@ -9,6 +9,7 @@ public class BlueEnemyChaseState : EnemyBaseState
         currentEnemy = enemy;
         currentEnemy.currentSpeed = currentEnemy.chaseSpeed;
         
+        currentEnemy.anim.SetBool("walk",true);
         
     }
 
@@ -32,6 +33,6 @@ public class BlueEnemyChaseState : EnemyBaseState
 
     public override void OnExit()
     {
-      
+        currentEnemy.anim.SetBool("walk",false);
     }
 }

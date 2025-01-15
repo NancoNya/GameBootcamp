@@ -374,7 +374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedb7037e933fb94280e8d0db331f09c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1399848030}
   openMusic: {fileID: -169296610, guid: 9e45d76aa290d1f4ea984cb92dd9a39c, type: 3}
   closeMusic: {fileID: -458949426, guid: 9e45d76aa290d1f4ea984cb92dd9a39c, type: 3}
 --- !u!114 &56882315
@@ -604,6 +603,9 @@ MonoBehaviour:
   OneHit_Kill: 0
   DoubleHurt: 0
   ThreeHurt: 0
+  OnHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -1160,8 +1162,111 @@ MonoBehaviour:
   wait: 0
   lostTime: 3
   lostTimeCounter: 0
+  attacker: {fileID: 0}
+  stopDistance: 1.5
   distanceToPlayer: 0
   detectionRadius: 0
+--- !u!1 &154095601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 154095602}
+  - component: {fileID: 154095603}
+  - component: {fileID: 154095604}
+  m_Layer: 7
+  m_Name: Attack2Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &154095602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154095601}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 665799638}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &154095603
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154095601}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.0945665, y: 0.64281815}
+      - {x: 1.353481, y: 1.0095214}
+      - {x: 1.4935064, y: 1.3889693}
+      - {x: 1.4878867, y: 2.2211676}
+      - {x: 1.2072765, y: 2.4858787}
+      - {x: 0.78556734, y: 2.678186}
+      - {x: 0.9005491, y: 2.249428}
+      - {x: 0.8494706, y: 1.8569009}
+      - {x: 0.7974697, y: 0.88256156}
+  m_UseDelaunayMesh: 0
+--- !u!114 &154095604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154095601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3d2ff4f62cf0a439ede22404c6fdfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPower: 0
+  attackDamage: 10
 --- !u!1001 &201252233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2229,7 +2334,7 @@ Transform:
   m_GameObject: {fileID: 590941673}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.19, y: -37.739998, z: -10}
+  m_LocalPosition: {x: 4.2, y: 3.4900002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2328,7 +2433,10 @@ GameObject:
   - component: {fileID: 665799641}
   - component: {fileID: 665799640}
   - component: {fileID: 665799642}
-  m_Layer: 0
+  - component: {fileID: 665799645}
+  - component: {fileID: 665799644}
+  - component: {fileID: 665799643}
+  m_Layer: 7
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2347,7 +2455,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -1.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 154095602}
   m_Father: {fileID: 2131008047}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &665799639
@@ -2495,6 +2604,97 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &665799643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665799637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9310ba7ea23a47c4b9a442d78f0b635d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGround: 0
+  touchLeftWall: 0
+  touchRightWall: 0
+  checkRaduis: 0.1
+  bottomOffset: {x: 2, y: 0}
+  leftOffset: {x: -1, y: 1}
+  rightOffset: {x: 1, y: 1}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &665799644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665799637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d915b032c6c5ffb49b4a1d96549cac0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  physicsCheck: {fileID: 0}
+  normalSpeed: 10
+  chaseSpeed: 0
+  currentSpeed: 0
+  faceDir: {x: 0, y: 0, z: 0}
+  faceDirNoNormalized: {x: 0, y: 0, z: 0}
+  centerOffset: {x: 0, y: 1}
+  checkSize: {x: 1, y: 1}
+  checkDistance: 5
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  waitTime: 0
+  waitTimeCounter: 0
+  wait: 0
+  lostTime: 3
+  lostTimeCounter: 0
+  attacker: {fileID: 0}
+  stopDistance: 1.5
+  distanceToPlayer: 0
+  detectionRadius: 0
+--- !u!70 &665799645
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665799637}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 384
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.5}
+  m_Size: {x: 1.5429523, y: 2.9346962}
+  m_Direction: 0
 --- !u!1001 &680678505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4364,7 +4564,7 @@ Transform:
   m_GameObject: {fileID: 1302034790}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.19, y: -37.739998, z: -10}
+  m_LocalPosition: {x: 4.2, y: 3.4900002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4819,7 +5019,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b90b002a8cd137243a4b5e955f3b220f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b183c4c72bb5aa8478fc068bc9b0e041, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -5616,6 +5816,8 @@ MonoBehaviour:
   wait: 0
   lostTime: 3
   lostTimeCounter: 0
+  attacker: {fileID: 0}
+  stopDistance: 1.5
   distanceToPlayer: 0
   detectionRadius: 0
 --- !u!1001 &1636614221
@@ -8918,15 +9120,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e7b8ab2e1a5954aad26e0c64b49d61, type: 3}
   m_Name: Eblue
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 100
   currentHealth: 0
   attackPower: 0
   defensePower: 0
-  invulnerableDuration: 0
+  invulnerableDuration: 1
   invulnerable: 0
   OneHit_Kill: 0
   DoubleHurt: 0
   ThreeHurt: 0
+  OnHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -9029,7 +9234,7 @@ Transform:
   m_GameObject: {fileID: 2045853737}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.19, y: -42.41, z: 0}
+  m_LocalPosition: {x: 4.2, y: -1.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

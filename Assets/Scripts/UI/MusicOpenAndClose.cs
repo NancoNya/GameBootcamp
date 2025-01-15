@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MusicOpenAndClose : MonoBehaviour
 {
-    public AudioSource audioSource;
+    //public AudioSource audioSource;
     public Sprite openMusic;
     public Sprite closeMusic;
     
@@ -30,14 +30,16 @@ public class MusicOpenAndClose : MonoBehaviour
         if (imageSprite == openMusic)
         {
            imageSprite = closeMusic;
-           Debug.Log("切换成静音");
-           audioSource.Stop();
+           //Debug.Log("切换成静音");
+           //audioSource.Stop();
+           AudioListener.volume = 0f;
         }
         else if(imageSprite==closeMusic)
         {
             imageSprite = openMusic;
-            Debug.Log("打开声音");
-            if(!audioSource.isPlaying)audioSource.Play();
+            //Debug.Log("打开声音");
+            //if(!audioSource.isPlaying)audioSource.Play();
+            AudioListener.volume = 1f;
         }
         GetComponent<Image>().sprite = imageSprite;
     }

@@ -7,13 +7,13 @@ using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
-    [Header("»ù±¾ÊôÐÔ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public float maxHealth;
     public float currentHealth;
     public float attackPower;
     public float defensePower;
 
-    [Header("ÊÜÉËÎÞµÐ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½Þµï¿½")]
     public float invulnerableDuration;
     private float invulnerableCounter;
     public bool invulnerable;
@@ -21,7 +21,9 @@ public class Character : MonoBehaviour
     public bool OneHit_Kill;
     public bool DoubleHurt;
     public bool ThreeHurt;
+    
 
+    public UnityEvent<Character> OnHealthChange;
     public UnityEvent<Transform> OnTakeDamage;
 
     private void Start()
@@ -42,7 +44,7 @@ public class Character : MonoBehaviour
         if (invulnerable || currentHealth <= 0)
             return;
 
-        //if (currentHealth - attacker.attackPower > 0) //Âú×ãÊÜÉËÌõ¼þ
+        //if (currentHealth - attacker.attackPower > 0) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         {
             var Damage = damage;
             if (DoubleHurt) Damage *= 2;
@@ -50,13 +52,13 @@ public class Character : MonoBehaviour
             currentHealth = Mathf.Max(0, currentHealth - Damage);
             TriggerInvulnerable();
 
-           // OnTakeDamage?.Invoke();
+            
         }
         //else
         {
             if (currentHealth <= 0)
             {
-                //ËÀÍö
+                //ï¿½ï¿½ï¿½ï¿½
             }
         }
     }

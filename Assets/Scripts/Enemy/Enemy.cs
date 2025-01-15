@@ -14,8 +14,9 @@ public class Enemy : MonoBehaviour
     public float normalSpeed;
     public float chaseSpeed;
     public float currentSpeed;
-    public Vector3 faceDir;
-    public Vector3 faceDirNoNormalized;
+    [HideInInspector]public Vector3 faceDir;
+    [HideInInspector]public Vector3 faceDirNoNormalized;
+    
     
 
     [Header("检测")]
@@ -32,6 +33,8 @@ public class Enemy : MonoBehaviour
     public float lostTimeCounter;
 
     [Header("追逐参数")]
+    public Transform attacker;
+    public float stopDistance = 1.5f;
     public float distanceToPlayer;
     public float detectionRadius;
     
@@ -40,6 +43,10 @@ public class Enemy : MonoBehaviour
     protected EnemyBaseState patrolState;
     protected EnemyBaseState chaseState;
     protected EnemyBaseState foundPlayer;
+    protected EnemyBaseState bossAttack1;
+    protected EnemyBaseState bossAttack2;
+    protected EnemyBaseState hurt;
+    protected EnemyBaseState dead;
 
     protected virtual void Awake()
     {
@@ -55,7 +62,7 @@ public class Enemy : MonoBehaviour
         currentState.OnEnter(this);
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         faceDirNoNormalized = new Vector3(-transform.localScale.x, 0, 0);
         if(faceDirNoNormalized.x>0)faceDir=new Vector3(1, 0, 0);
@@ -110,10 +117,21 @@ public class Enemy : MonoBehaviour
     
     public virtual bool FoundPlayer()
     {
-        bool foundPlayer = false;
-        foundPlayer=Physics2D.BoxCast(transform.position + (Vector3)centerOffset, checkSize, 0, faceDir, checkDistance, attackLayer)||
-                    Physics2D.BoxCast(transform.position + (Vector3)centerOffset, checkSize, 0, -faceDir, checkDistance/3, attackLayer);
-        
+
+        RaycastHit2D hit1 = Physics2D.Raycast(transform.position + (Vector3)centerOffset, faceDir, checkDistance, attackLayer);
+        RaycastHit2D hit2 = Physics2D.Raycast(transform.position + (Vector3)centerOffset, -faceDir, checkDistance / 3, attackLayer);
+        bool foundPlayer = hit1.collider != null || hit2.collider != null;
+        if (foundPlayer)
+        {
+            if (hit1.collider != null)
+            {
+                attacker = hit1.transform;
+            }
+            else if (hit2.collider != null)
+            {
+                attacker= hit2.transform;
+            }
+        }
         return foundPlayer;
     }
 
@@ -134,7 +152,10 @@ public class Enemy : MonoBehaviour
             NPCState.Patrol => patrolState,
             NPCState.Chase => chaseState,
             NPCState.FoundPlayer=>foundPlayer,
-            
+            NPCState.BossAttack1=>bossAttack1,
+            NPCState.BossAttack2=>bossAttack2,
+            NPCState.dead=>dead,
+            NPCState.hurt=>hurt,
             _ => null
         };
         

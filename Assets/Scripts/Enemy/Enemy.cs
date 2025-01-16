@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
     protected EnemyBaseState bossAttack2;
     protected EnemyBaseState hurt;
     protected EnemyBaseState dead;
+    protected EnemyBaseState attack;
 
     protected virtual void Awake()
     {
@@ -154,8 +155,9 @@ public class Enemy : MonoBehaviour
             NPCState.FoundPlayer=>foundPlayer,
             NPCState.BossAttack1=>bossAttack1,
             NPCState.BossAttack2=>bossAttack2,
-            NPCState.dead=>dead,
-            NPCState.hurt=>hurt,
+            NPCState.Dead=>dead,
+            NPCState.Hurt=>hurt,
+            NPCState.Attack=>attack,
             _ => null
         };
         

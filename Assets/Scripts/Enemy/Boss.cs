@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Boss : Enemy
 {
+    public Attack attack2;
     protected override void Awake()
     {
         base.Awake();
@@ -61,6 +62,17 @@ public class Boss : Enemy
         else
         {
             SwitchState(NPCState.Patrol);
+        }
+    }
+    
+    public void BossAttack2()
+    {
+        RaycastHit2D hit1 = Physics2D.Raycast(transform.position + (Vector3)centerOffset, faceDir, checkDistance/3, attackLayer);
+        if (hit1.collider != null)
+        {
+            attacker = hit1.transform;
+            Debug.Log(attacker.name);
+            attacker.GetComponent<Character>()?.GetDamage(attack2);
         }
     }
 }

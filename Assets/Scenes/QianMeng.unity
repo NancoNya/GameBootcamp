@@ -1081,11 +1081,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.0945665, y: 0.64281815}
-      - {x: 1.353481, y: 1.0095214}
-      - {x: 1.4935064, y: 1.3889693}
-      - {x: 1.4878867, y: 2.2211676}
-      - {x: 1.2072765, y: 2.4858787}
+    - - {x: 1.0558907, y: 0.21738428}
+      - {x: 1.572644, y: -0.034725547}
+      - {x: 1.6739937, y: 0.77015626}
+      - {x: 1.7775247, y: 1.5039487}
+      - {x: 1.7972932, y: 2.6981692}
+      - {x: 1.2330604, y: 2.9628804}
       - {x: 0.78556734, y: 2.678186}
       - {x: 0.9005491, y: 2.249428}
       - {x: 0.8494706, y: 1.8569009}
@@ -2619,6 +2620,7 @@ MonoBehaviour:
   stopDistance: 1.5
   distanceToPlayer: 0
   detectionRadius: 0
+  attack2: {fileID: 154095604}
 --- !u!70 &665799645
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3590,13 +3592,14 @@ GameObject:
   - component: {fileID: 1102717578}
   - component: {fileID: 1102717580}
   - component: {fileID: 1102717579}
+  - component: {fileID: 1102717581}
   m_Layer: 0
   m_Name: Attack1Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1102717578
 Transform:
   m_ObjectHideFlags: 0
@@ -3709,6 +3712,66 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1102717581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102717577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3d2ff4f62cf0a439ede22404c6fdfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPower: 0
+  attackDamage: 10
+--- !u!1 &1118216874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1118216876}
+  - component: {fileID: 1118216875}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1118216875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118216874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0464430a3e86a6449c32a6575dd66ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatBar: {fileID: 3297388140747984904}
+  healthEvent: {fileID: 11400000, guid: d0893011e06f4f4429e3a8c82f897836, type: 2}
+--- !u!4 &1118216876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118216874}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1174660575
 GameObject:
   m_ObjectHideFlags: 0
@@ -4451,9 +4514,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1280972239}
-  - component: {fileID: 1280972238}
   - component: {fileID: 1280972237}
   - component: {fileID: 1280972236}
+  - component: {fileID: 1280972238}
+  - component: {fileID: 1280972240}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -4568,6 +4632,45 @@ Transform:
   - {fileID: 1616554363}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1280972240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280972235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e7b8ab2e1a5954aad26e0c64b49d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  attackPower: 0
+  defensePower: 0
+  invulnerableDuration: 1
+  invulnerable: 0
+  OneHit_Kill: 0
+  DoubleHurt: 0
+  ThreeHurt: 0
+  OnHealthChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: d0893011e06f4f4429e3a8c82f897836, type: 2}
+        m_TargetAssemblyTypeName: CharacterEventSO, Assembly-CSharp
+        m_MethodName: RaiseEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1285602132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10603,3 +10706,4 @@ SceneRoots:
   - {fileID: 1399848031}
   - {fileID: 2131008047}
   - {fileID: 1280972239}
+  - {fileID: 1118216876}

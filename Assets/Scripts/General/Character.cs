@@ -7,13 +7,13 @@ using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
-    [Header("��������")]
+    [Header("基本属性")]
     public float maxHealth;
     public float currentHealth;
     public float attackPower;
     public float defensePower;
 
-    [Header("�����޵�")]
+    [Header("受伤无敌")]
     public float invulnerableDuration;
     private float invulnerableCounter;
     public bool invulnerable;
@@ -26,9 +26,15 @@ public class Character : MonoBehaviour
     public UnityEvent<Character> OnHealthChange;
     public UnityEvent<Transform> OnTakeDamage;
 
-    private void Start()
+    
+    private void NewGame()
     {
         currentHealth = maxHealth;
+        OnHealthChange?.Invoke(this);
+    }
+    private void Start()
+    {
+        NewGame();
     }
 
     private void Update()
@@ -39,28 +45,31 @@ public class Character : MonoBehaviour
             invulnerable = false;
     }
 
-    public void GetDamage(float damage)
+    public void GetDamage(Attack attacker)
     {
         if (invulnerable || currentHealth <= 0)
             return;
 
-        //if (currentHealth - attacker.attackPower > 0) //������������
-        {
-            var Damage = damage;
+            var Damage = attacker.attackDamage;
             if (DoubleHurt) Damage *= 2;
             if (ThreeHurt) Damage *= 3;
-            currentHealth = Mathf.Max(0, currentHealth - Damage);
-            TriggerInvulnerable();
-
-            
-        }
-        //else
-        {
-            if (currentHealth <= 0)
+            if (currentHealth - Damage > 0)
             {
-                //����
+                currentHealth -= Damage;
+                //受伤伤害后触发无敌计时
+                TriggerInvulnerable();
+            
+                //执行受伤事件
+                OnTakeDamage?.Invoke(attacker.transform);
             }
-        }
+            else
+            {
+                currentHealth = 0;
+                //触发死亡
+                //OnDie?.Invoke();
+            }
+        
+            OnHealthChange?.Invoke(this);
     }
 
     public void TriggerInvulnerable()

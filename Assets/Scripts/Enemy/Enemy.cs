@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public  Animator anim;
     public PhysicsCheck physicsCheck;
 
-    [Header("基本参数")]
+    [Header("移动参数")]
     public float normalSpeed;
     public float chaseSpeed;
     public float currentSpeed;
@@ -40,6 +40,12 @@ public class Enemy : MonoBehaviour
     protected EnemyBaseState patrolState;
     protected EnemyBaseState chaseState;
     protected EnemyBaseState foundPlayer;
+
+    [Header("属性")]
+    public float maxHealth;
+    public float currentHealth;
+    public float attackPower;
+    public float defensePower;
 
     protected virtual void Awake()
     {

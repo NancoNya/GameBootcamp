@@ -20,7 +20,7 @@ MonoBehaviour:
   RunReduce: 40
   RunAccel: 100
   AirMult: 0.65
-  MaxRun: 9
+  MaxRun: 10
   JumpGraceTimer: 0.1
   JumpBoost: 4
   JumpSpeed: 10.5

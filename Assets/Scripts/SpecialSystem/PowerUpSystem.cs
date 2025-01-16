@@ -40,6 +40,12 @@ public class PowerUpSystem : MonoBehaviour
     }
     private void Start()
     {
+        GameObject playerForSave = GameObject.Find("Player");
+        if(playerForSave != null)
+        {
+            PlayerData playerData = playerForSave.GetComponent<PlayerData>();
+        }
+
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         if (player == null)
         {
@@ -84,6 +90,7 @@ public class PowerUpSystem : MonoBehaviour
                 if (!powerUpActive && !powerUpCooldown)
                 {
                     Debug.Log("press R and power up");
+                    
                     TriggerPowerUp();
                 }
             }

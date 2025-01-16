@@ -11,6 +11,8 @@ public class BlueEnemy : Enemy
         chaseState = new BlueEnemyChaseState();
         foundPlayer = new EnemyFoundPlayerState();
         attack = new BlueEnemyAttackState();
+        hurt = new BlueEnemyHurtState();
+        dead = new EnemyDeadState();
     }
     
 }

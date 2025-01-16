@@ -10,6 +10,7 @@ public class BlueEnemy : Enemy
         patrolState = new BlueEnemyPatrolState();
         chaseState = new BlueEnemyChaseState();
         foundPlayer = new EnemyFoundPlayerState();
+        attack = new BlueEnemyAttackState();
     }
     
 }

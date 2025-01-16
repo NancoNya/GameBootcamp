@@ -24,6 +24,23 @@ public class BlueEnemyChaseState : EnemyBaseState
         {
             currentEnemy.transform.localScale = new Vector3(currentEnemy.faceDirNoNormalized.x, currentEnemy.transform.localScale.y, currentEnemy.transform.localScale.z);
         }
+        
+        if (currentEnemy.FoundPlayer())
+        {
+            if (currentEnemy.attacker.position.x >= currentEnemy.transform.position.x)
+            {
+                currentEnemy.transform.localScale = new Vector3(-Mathf.Abs(currentEnemy.faceDirNoNormalized.x),currentEnemy.transform.localScale.y ,currentEnemy.transform.localScale.z );
+            }
+            else
+            {
+                currentEnemy.transform.localScale = new Vector3(Mathf.Abs(currentEnemy.faceDirNoNormalized.x),currentEnemy.transform.localScale.y ,currentEnemy.transform.localScale.z );
+            }
+            currentEnemy.distanceToPlayer=Vector2.Distance(currentEnemy.transform.position, currentEnemy.attacker.position);
+            if (currentEnemy.distanceToPlayer <= currentEnemy.stopDistance)
+            {
+                currentEnemy.SwitchState(NPCState.Attack);
+            }
+        }
     }
 
     public override void FixedUpdate()

@@ -19,10 +19,27 @@ public class RedEnemyChaseState : EnemyBaseState
             currentEnemy.SwitchState(NPCState.Patrol);
         }
         
+        if (currentEnemy.FoundPlayer())
+        {
+            if (currentEnemy.attacker.position.x >= currentEnemy.transform.position.x)
+            {
+                currentEnemy.transform.localScale = new Vector3(-Mathf.Abs(currentEnemy.faceDirNoNormalized.x),currentEnemy.transform.localScale.y ,currentEnemy.transform.localScale.z );
+            }
+            else
+            {
+                currentEnemy.transform.localScale = new Vector3(Mathf.Abs(currentEnemy.faceDirNoNormalized.x),currentEnemy.transform.localScale.y ,currentEnemy.transform.localScale.z );
+            }
+            currentEnemy.distanceToPlayer=Vector2.Distance(currentEnemy.transform.position, currentEnemy.attacker.position);
+            if (currentEnemy.distanceToPlayer <= currentEnemy.stopDistance)
+            {
+                currentEnemy.SwitchState(NPCState.Attack);
+            }
+        }
         if (!currentEnemy.physicsCheck.isGround || (currentEnemy.physicsCheck.touchLeftWall && currentEnemy.faceDir.x < 0) || (currentEnemy.physicsCheck.touchRightWall && currentEnemy.faceDir.x > 0))
         {
             currentEnemy.transform.localScale = new Vector3(currentEnemy.faceDirNoNormalized.x, currentEnemy.transform.localScale.y, currentEnemy.transform.localScale.z);
         }
+        
     }
 
     public override void FixedUpdate()
@@ -33,5 +50,6 @@ public class RedEnemyChaseState : EnemyBaseState
     public override void OnExit()
     {
         currentEnemy.anim.SetBool("walk",false);
+        currentEnemy.currentSpeed = 0;
     }
 }

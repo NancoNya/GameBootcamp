@@ -10,5 +10,7 @@ public class RedEnemy : Enemy
         patrolState = new RedEnemyPatrolState();
         chaseState = new RedEnemyChaseState();
         foundPlayer = new EnemyFoundPlayerState();
+        attack = new RedEnemyAttackState();
+        
     }
 }

@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Boss : Enemy
 {
+    public Attack attack2;
+    private Character character;
     protected override void Awake()
     {
         base.Awake();
         patrolState = new BossRunState();
         bossAttack2 = new BossAttack2State();
         bossAttack1 = new BossAttack1State();
+        dead = new BossDeadState();
+        hurt = new BossHurtState();
+        character = GetComponent<Character>();
 
     }
 
@@ -62,5 +67,34 @@ public class Boss : Enemy
         {
             SwitchState(NPCState.Patrol);
         }
+    }
+    
+    public void BossAttack2()
+    {
+        RaycastHit2D hit1 = Physics2D.Raycast(transform.position + (Vector3)centerOffset, faceDir, checkDistance/3, attackLayer);
+        if (hit1.collider != null)
+        {
+            attacker = hit1.transform;
+            Debug.Log(attacker.name);
+            attacker.GetComponent<Character>()?.GetDamage(attack2);
+        }
+    }
+
+    public void BossDead()
+    {
+        SwitchState(NPCState.Dead);
+        isDead = true;
+
+    }
+
+    public void BossHurt()
+    {
+        if (!character.isHurt)
+        {
+            SwitchState(NPCState.Hurt);
+            character.isHurt = true;
+            character.hurtCounter = character.hurtTime;
+        }
+        
     }
 }

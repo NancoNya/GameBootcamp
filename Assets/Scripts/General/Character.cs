@@ -18,6 +18,11 @@ public class Character : MonoBehaviour
     private float invulnerableCounter;
     public bool invulnerable;
 
+    [Header("受伤动画cd")]
+    public float hurtTime;
+    [HideInInspector]public float hurtCounter;
+    public bool isHurt;
+
     public bool OneHit_Kill;
     public bool DoubleHurt;
     public bool ThreeHurt;
@@ -25,6 +30,8 @@ public class Character : MonoBehaviour
 
     public UnityEvent<Character> OnHealthChange;
     public UnityEvent<Transform> OnTakeDamage;
+
+    public UnityEvent OnDie;
 
     
     private void NewGame()
@@ -43,6 +50,11 @@ public class Character : MonoBehaviour
             invulnerableCounter -= Time.deltaTime;
         if (invulnerableCounter <= 0)
             invulnerable = false;
+
+        if (isHurt)
+            hurtCounter -= Time.deltaTime;
+        if (hurtCounter <= 0)
+            isHurt = false;
     }
 
     public void GetDamage(Attack attacker)
@@ -66,7 +78,7 @@ public class Character : MonoBehaviour
             {
                 currentHealth = 0;
                 //触发死亡
-                //OnDie?.Invoke();
+                OnDie?.Invoke();
             }
         
             OnHealthChange?.Invoke(this);

@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedEnemyAttackState : EnemyBaseState
+public class BossDeadState : EnemyBaseState
 {
     public override void OnEnter(Enemy enemy)
     {
         currentEnemy = enemy;
         currentEnemy.currentSpeed = 0;
-        currentEnemy.anim.SetBool("attack",true);
+        currentEnemy.anim.SetBool("dead",true);
     }
 
     public override void Update()
@@ -18,11 +18,11 @@ public class RedEnemyAttackState : EnemyBaseState
 
     public override void FixedUpdate()
     {
-        
+       
     }
 
     public override void OnExit()
     {
-        
     }
+    
 }

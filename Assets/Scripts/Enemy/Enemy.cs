@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
     public float detectionRadius;
     
     [Header("状态")]
+    public bool isDead;
     protected EnemyBaseState currentState;
     protected EnemyBaseState patrolState;
     protected EnemyBaseState chaseState;

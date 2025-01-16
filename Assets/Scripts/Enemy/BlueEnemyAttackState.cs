@@ -6,7 +6,9 @@ public class BlueEnemyAttackState : EnemyBaseState
 {
     public override void OnEnter(Enemy enemy)
     {
-        
+        currentEnemy = enemy;
+        currentEnemy.currentSpeed = 0;
+        currentEnemy.anim.SetBool("attack",true);
     }
 
     public override void Update()

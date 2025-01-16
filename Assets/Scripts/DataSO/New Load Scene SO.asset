@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74dafa765a01fb4e9fe969a06112fdc, type: 3}
+  m_Name: New Load Scene SO
+  m_EditorClassIdentifier: 
+  DefaultPlayerData:
+    PlayerPosition: {x: 0, y: 0, z: 0}
+    PlayerCurrentHealth: 100
+  PlayerData:
+    PlayerPosition: {x: 3.597345, y: -0.23845832, z: 0}
+    PlayerCurrentHealth: 70

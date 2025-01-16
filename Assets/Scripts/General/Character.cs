@@ -36,7 +36,7 @@ public class Character : MonoBehaviour
     
     private void NewGame()
     {
-        currentHealth = maxHealth;
+        if(!transform.CompareTag("Player"))currentHealth = maxHealth;
         OnHealthChange?.Invoke(this);
     }
     private void Start()

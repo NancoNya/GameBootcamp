@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6941ca5c9dcd2c4a87001f39e5a696e, type: 3}
+  m_Name: DialogueDataAsset8
+  m_EditorClassIdentifier: 
+  dialogueDatas:
+  - Flag: '@'
+    ID: 1
+    Character: Black
+    Content: "\u8FD8\u597D\u8D77\u4F5C\u7528\u4E86\u3002"
+    Next: "2\r"
+  - Flag: '@'
+    ID: 2
+    Character: Me
+    Content: "\u6211\u8083\u6E05\u4E86\u4E00\u7247\u533A\u57DF\uFF0C\u6E38\u620F\u91CC\u662F\u8FD9\u4E48\u8BF4\u7684\u5427\uFF1F"
+    Next: "3\r"
+  - Flag: '@'
+    ID: 3
+    Character: Black
+    Content: "\u8FD8\u6709\u5FC3\u60C5\u5728\u8FD9\u91CC\u8C08\u8BBA\u6E38\u620F......"
+    Next: "4\r"
+  - Flag: '@'
+    ID: 4
+    Character: Black
+    Content: "\u8BE5\u4E0D\u8BE5\u8BF4\u4E0D\u6127\u662F\u4F60\uFF1F"
+    Next: "5\r"
+  - Flag: '@'
+    ID: 5
+    Character: ' '
+    Content: "\u7EE7\u7EED\u63A2\u7D22\u5427\u3002"
+    Next: "6\r"
+  - Flag: end
+    ID: 6
+    Character: 
+    Content: 
+    Next: "\r"

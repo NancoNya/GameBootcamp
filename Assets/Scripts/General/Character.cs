@@ -62,7 +62,8 @@ public class Character : MonoBehaviour
         if (invulnerable || currentHealth <= 0)
             return;
 
-            var Damage = attacker.attackDamage;
+        var Damage = attacker.attackDamage;
+       
             if (DoubleHurt) Damage *= 2;
             if (ThreeHurt) Damage *= 3;
             if (currentHealth - Damage > 0)

@@ -11,7 +11,8 @@ public enum AniPara
     Jump,
     Attack,
     ComboCount,
-    slide
+    slide,
+    Dead
 }
 
 public class AniCtx 

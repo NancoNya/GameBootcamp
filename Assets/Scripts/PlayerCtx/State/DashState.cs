@@ -38,7 +38,7 @@ public class DashState : PlayerState
                 return EActionState.normal;
             }
         
-            //ÏòÉÏDashÇé¿öÏÂ£¬¼ì²âSuperWallJump
+            //ï¿½ï¿½ï¿½ï¿½Dashï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½SuperWallJump
             if (GameInput.Jump.Pressed())
             {
                 if (playerController.ClimbCheck(1))
@@ -86,8 +86,6 @@ public class DashState : PlayerState
         {
             playerController.Facing = Math.Sign(DashDir);
         }
-        
-        //ÌØÐ§
         
         yield return playerController.contants.DashTime;
 

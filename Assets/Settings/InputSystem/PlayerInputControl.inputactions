@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInputAction",
+    "name": "PlayerInputControl",
     "maps": [
         {
             "name": "Gameplay",
@@ -27,6 +27,15 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "9b1d8504-bf15-4003-8d4d-3518e65fb34f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PowerUp",
+                    "type": "Button",
+                    "id": "20068afc-c506-4885-b0c6-7314955fb0e6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -185,6 +194,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6873df63-c077-4402-929e-61a66c29bedf",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PowerUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

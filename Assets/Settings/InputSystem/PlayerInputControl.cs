@@ -53,6 +53,15 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PowerUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""20068afc-c506-4885-b0c6-7314955fb0e6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -207,6 +216,17 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6873df63-c077-4402-929e-61a66c29bedf"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PowerUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -797,6 +817,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
+        m_Gameplay_PowerUp = m_Gameplay.FindAction("PowerUp", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -873,6 +894,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Attack;
     private readonly InputAction m_Gameplay_Jump;
+    private readonly InputAction m_Gameplay_PowerUp;
     public struct GameplayActions
     {
         private @PlayerInputControl m_Wrapper;
@@ -880,6 +902,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
+        public InputAction @PowerUp => m_Wrapper.m_Gameplay_PowerUp;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -898,6 +921,9 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @PowerUp.started += instance.OnPowerUp;
+            @PowerUp.performed += instance.OnPowerUp;
+            @PowerUp.canceled += instance.OnPowerUp;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -911,6 +937,9 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @PowerUp.started -= instance.OnPowerUp;
+            @PowerUp.performed -= instance.OnPowerUp;
+            @PowerUp.canceled -= instance.OnPowerUp;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -1096,6 +1125,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnPowerUp(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

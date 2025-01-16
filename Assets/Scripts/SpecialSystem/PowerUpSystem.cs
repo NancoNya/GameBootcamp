@@ -6,15 +6,16 @@ using UnityEngine.InputSystem;
 
 public class PowerUpSystem : MonoBehaviour
 {
-    public GameObject backgorund2;
+    public PlayerInputControl inputActions;
+    public GameObject backgorund1;
     public Character player;  //player攻击力，防御力
     public Contants contants;  //player速度
     private List<Enemy> enemies = new List<Enemy>();
 
-    private bool powerUpActive = false;
-    private bool powerUpCooldown = false;
+    public bool powerUpActive = false;
+    public bool powerUpCooldown = false;
     private float powerUpDuration = 10f;
-    private float powerUpTimer = 0f;
+    public float powerUpTimer = 0f;
     private Dictionary<Enemy, EnemyData> originalEnemyData = new Dictionary<Enemy, EnemyData>();
     private PlayerData originalPlayerData;
 
@@ -33,6 +34,10 @@ public class PowerUpSystem : MonoBehaviour
         public float defensePower;
     }
 
+    private void Awake()
+    {
+        inputActions = new PlayerInputControl();
+    }
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
@@ -60,22 +65,25 @@ public class PowerUpSystem : MonoBehaviour
 
     private void OnEnable()
     {
-        InputSystem.onActionTriggered += OnActionTriggered;
+        inputActions.Enable();
+        inputActions.Gameplay.PowerUp.started += OnActionTriggered;
     }
 
     private void OnDisable()
     {
-        InputSystem.onActionTriggered -= OnActionTriggered;
+        inputActions.Gameplay.PowerUp.started -= OnActionTriggered;
+        inputActions.Disable();
     }
 
     private void OnActionTriggered(InputAction.CallbackContext context)
     {
-        if (context.action.name == "R")
+        if (context.action.name == "PowerUp")
         {
             if (context.phase == InputActionPhase.Performed)
             {
                 if (!powerUpActive && !powerUpCooldown)
                 {
+                    Debug.Log("press R and power up");
                     TriggerPowerUp();
                 }
             }
@@ -84,13 +92,13 @@ public class PowerUpSystem : MonoBehaviour
 
     private void TriggerPowerUp()
     {
-        if (backgorund2 == null)
+        if (backgorund1 == null)
         {
-            Debug.LogError("Backgorund2 not found!");
+            Debug.LogError("Backgorund1 not found!");
             return;
         }
 
-        backgorund2.SetActive(false);
+        backgorund1.SetActive(false);
         powerUpActive = true;
         powerUpCooldown = true;
         powerUpTimer = powerUpDuration;
@@ -134,7 +142,7 @@ public class PowerUpSystem : MonoBehaviour
         player.attackPower = originalPlayerData.attackPower;
         contants.MaxRun = originalPlayerData.currentSpeed;
         player.defensePower = originalPlayerData.defensePower;
-        backgorund2.SetActive(true);
+        backgorund1.SetActive(true);
         powerUpActive = false;
         powerUpCooldown = false;
     }

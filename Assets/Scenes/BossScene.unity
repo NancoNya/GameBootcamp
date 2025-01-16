@@ -135,13 +135,15 @@ GameObject:
   - component: {fileID: 23463759}
   - component: {fileID: 23463762}
   - component: {fileID: 23463761}
+  - component: {fileID: 23463764}
+  - component: {fileID: 23463763}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &23463759
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -281,6 +283,57 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &23463763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23463758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb267dc835d7ea40b62bf7293ad5e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  global: 0
+  boxCollider: {fileID: 23463761}
+  playerRigidbody: {fileID: 23463762}
+  animator: {fileID: 0}
+  contants: {fileID: 11400000, guid: 673ddb09535def140bb5f52ad3b3a5f1, type: 2}
+  FreezeCooldownTimer: 0
+--- !u!114 &23463764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23463758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e7b8ab2e1a5954aad26e0c64b49d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
+  attackPower: 0
+  defensePower: 0
+  invulnerableDuration: 0
+  invulnerable: 0
+  hurtTime: 0
+  hurtCounter: 0
+  isHurt: 0
+  OneHit_Kill: 0
+  DoubleHurt: 0
+  ThreeHurt: 0
+  OnHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &208705934
 GameObject:
   m_ObjectHideFlags: 0

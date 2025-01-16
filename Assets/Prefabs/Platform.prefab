@@ -90,5 +90,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78fb336e3652bd947be1aab62a285cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformCollider: {fileID: 0}
+  platformCollider: {fileID: 3775090158065214968}
   player: {fileID: 0}

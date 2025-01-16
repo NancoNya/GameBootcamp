@@ -11,6 +11,8 @@ public class RedEnemy : Enemy
         chaseState = new RedEnemyChaseState();
         foundPlayer = new EnemyFoundPlayerState();
         attack = new RedEnemyAttackState();
-        
+        hurt = new RedEnemyHurtState();
+        dead = new EnemyDeadState();
+
     }
 }

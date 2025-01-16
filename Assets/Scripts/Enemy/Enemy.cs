@@ -172,9 +172,22 @@ public class Enemy : MonoBehaviour
         currentState.OnExit();
         currentState = newState;
         currentState.OnEnter(this);
-    } 
-    
-    
+    }
+
+    public void EnemyHurt()
+    {
+        SwitchState(NPCState.Hurt);
+    }
+
+    public void EnemyDead()
+    {
+        SwitchState(NPCState.Dead);
+    }
+
+    public void AfterDeadAnimation()
+    {
+        Destroy(this.gameObject);
+    }
    
 
 }

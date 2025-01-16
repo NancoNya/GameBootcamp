@@ -10,7 +10,6 @@ public class BlueEnemyChaseState : EnemyBaseState
         currentEnemy.currentSpeed = currentEnemy.chaseSpeed;
         
         currentEnemy.anim.SetBool("walk",true);
-        
     }
 
     public override void Update()
@@ -18,11 +17,6 @@ public class BlueEnemyChaseState : EnemyBaseState
         if (currentEnemy.lostTimeCounter <= 0)
         {
             currentEnemy.SwitchState(NPCState.Patrol);
-        }
-        
-        if (!currentEnemy.physicsCheck.isGround || (currentEnemy.physicsCheck.touchLeftWall && currentEnemy.faceDir.x < 0) || (currentEnemy.physicsCheck.touchRightWall && currentEnemy.faceDir.x > 0))
-        {
-            currentEnemy.transform.localScale = new Vector3(currentEnemy.faceDirNoNormalized.x, currentEnemy.transform.localScale.y, currentEnemy.transform.localScale.z);
         }
         
         if (currentEnemy.FoundPlayer())
@@ -41,6 +35,11 @@ public class BlueEnemyChaseState : EnemyBaseState
                 currentEnemy.SwitchState(NPCState.Attack);
             }
         }
+        if (!currentEnemy.physicsCheck.isGround || (currentEnemy.physicsCheck.touchLeftWall && currentEnemy.faceDir.x < 0) || (currentEnemy.physicsCheck.touchRightWall && currentEnemy.faceDir.x > 0))
+        {
+            currentEnemy.transform.localScale = new Vector3(currentEnemy.faceDirNoNormalized.x, currentEnemy.transform.localScale.y, currentEnemy.transform.localScale.z);
+        }
+        
     }
 
     public override void FixedUpdate()
@@ -51,5 +50,6 @@ public class BlueEnemyChaseState : EnemyBaseState
     public override void OnExit()
     {
         currentEnemy.anim.SetBool("walk",false);
+        currentEnemy.currentSpeed = 0;
     }
 }

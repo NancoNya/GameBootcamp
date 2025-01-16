@@ -10,7 +10,6 @@ public class BossHealthChange : MonoBehaviour
     public Image healthImage;
     private void Update()
     {
-        
     }
 
     public void Change(Character character)

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
 
 public enum Facings
 {
@@ -10,10 +12,15 @@ public enum Facings
 
 public struct VisualJoystick
 {
+    public bool consumed;
     public Vector2 value
     {
         get
         {
+            if (consumed)
+            {
+                return Vector2.zero;
+            }
             return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         }
     }
@@ -24,7 +31,7 @@ public struct VisualButton
     private KeyCode key;
     private float bufferTime;
     private float bufferCount;
-    private bool consumed;
+    public bool consumed;
     
     public VisualButton(bool consumed = false) : this() {}
 
@@ -38,13 +45,13 @@ public struct VisualButton
 
     public void ConsumeBuffer() => bufferCount = 0;
 
-    public bool Pressed() => Input.GetKeyDown(key) || (!this.consumed && bufferCount > 0);
+    public bool Pressed() => (Input.GetKeyDown(key) && !consumed) || (!this.consumed && bufferCount > 0);
     
     public bool Checked() => Input.GetKey(key);
 
     public void Update(float deltaTime)
     {
-        this.consumed = false;
+        //this.consumed = false;
         bufferCount -= deltaTime;
         bool flag = false;
         if (Input.GetKeyDown(key))
@@ -95,8 +102,23 @@ public class GameInput
     public static void Update(float deltaTime)
     {
         Jump.Update(deltaTime);
-        Dash.Update(deltaTime);
-        Attack.Update(deltaTime);
-        Slide.Update(deltaTime);
+    }
+
+    public static void ConsumeAllButtons()
+    {
+        Jump.consumed = true;
+         Aim.consumed = true;
+         Dash.consumed = true;
+         Attack.consumed = true;
+         Slide.consumed = true;
+    }
+
+    public static void RefreshAllButtons()
+    {
+        Jump.consumed = false;
+        Aim.consumed = false;
+        Dash.consumed = false;
+        Attack.consumed = false;
+        Slide.consumed = false;
     }
 }

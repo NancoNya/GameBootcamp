@@ -1,39 +1,80 @@
-using System;
-using System.Collections;
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class DialogueDataImporter : MonoBehaviour
 {
     public DialogueDataAsset[] dialogueDataAssets;
     public DialoguePanel _dialoguePanel;
+    public DialogueScript _dialogueScript;
 
-    public Texture black;
-    public Texture me;
+    public Sprite black;
+    public Sprite me;
     
     private int dialogueDataAssetIndex = 0;
     private int index = 0;
     public float playSpeed;
     public bool TheFirst = true;
+    
+    public bool ProglueEnd = false;
+    public int linesIndex;
 
     private void Start()
     {
-        _dialoguePanel.SetImage(black, me);
+        _dialoguePanel.SetImage();
         dialogueDataAssetIndex = DialogueTrigger.Instance.dialogueIndex;
+        ProglueEnd = DialogueTrigger.Instance.ProdialogueEnd;
     }
 
     private void Update()
     {
-        SetDialogue();
+        if (ProglueEnd && _dialoguePanel.dialogueEnd)
+            SetDialogue();
+        else if (_dialoguePanel.dialogueEnd)
+        {
+            PlayProglue();
+        }
     }
 
+    /// <summary>
+    /// 针对序章的播放
+    /// </summary>
+    public void PlayProglue()
+    {
+        if ((Input.GetKeyDown(KeyCode.Space) || TheFirst) && !ProglueEnd && _dialogueScript.chapters[0].lines[linesIndex].content != "旁白" && _dialoguePanel.dialogueEnd)
+        {
+            if (_dialogueScript.chapters[0].lines[linesIndex].speaker == "A") _dialoguePanel.ShowCharacterLeft();
+            else if(_dialogueScript.chapters[0].lines[linesIndex].speaker == "B") _dialoguePanel.ShowCharacterRight();
+            else if (_dialogueScript.chapters[0].lines[linesIndex].speaker == "旁白")
+            {
+                _dialoguePanel.HideCharacter();
+            }
+            
+            _dialoguePanel.PlayDialogue(_dialogueScript.chapters[0].lines[linesIndex].content, playSpeed);
+            linesIndex++;
+            TheFirst = false;
+        }
+        else if (_dialogueScript.chapters[0].lines[linesIndex].content == "旁白" && _dialoguePanel.dialogueEnd)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                ProglueEnd = true;
+                TheFirst = true;
+                DialogueTrigger.Instance.ProdialogueEnd = true;
+                GameInput.RefreshAllButtons();
+                SceneManager.UnloadSceneAsync(1);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 针对后续剧情的播放
+    /// </summary>
     public void SetDialogue()
     {
         if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Flag == "@" && _dialoguePanel.dialogueEnd && (Input.GetKeyDown(KeyCode.Space) || TheFirst))
         {
-            if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Character == "Black") _dialoguePanel.HideCharacterRight();
-            else if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Character == "Me") _dialoguePanel.HideCharacterLeft();
+            if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Character == "Black") _dialoguePanel.ShowCharacterRight();
+            else if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Character == "Me") _dialoguePanel.ShowCharacterLeft();
             else
             {
                 _dialoguePanel.HideCharacter();
@@ -49,6 +90,8 @@ public class DialogueDataImporter : MonoBehaviour
             //退出
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                TheFirst = true;
+                GameInput.RefreshAllButtons();
                 SceneManager.UnloadSceneAsync(1);
             }
         }

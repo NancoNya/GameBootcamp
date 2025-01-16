@@ -37,8 +37,8 @@ MonoBehaviour:
   SuperJumpH: 26
   SuperWallJumpH: 17
   SuperWallJumpSpeed: 16
-  DashSpeed: 24
-  DashTime: 0.15
+  DashSpeed: 20
+  DashTime: 0.4
   MaxDashes: 1
   EndDashSpeed: 16
   DashCooldown: 0.2

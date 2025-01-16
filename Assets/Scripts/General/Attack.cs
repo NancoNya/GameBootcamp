@@ -1,16 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+[Serializable]
+public class Attack 
 {
+    public Transform transform;
+    public Attack(Transform transform, int attackPower, float attackDamage)
+    {
+        this.transform = transform;
+        this.attackDamage = attackDamage;
+        this.attackPower = attackPower;
+    }
+    
     public int attackPower;
     public float attackDamage;
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        collision.GetComponent<Character>()?.GetDamage(this);
-    }
-
-    
 }

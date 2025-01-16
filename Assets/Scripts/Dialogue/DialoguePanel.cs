@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class DialoguePanel : MonoBehaviour
 {
-    public RawImage characterLeft;
-    public RawImage characterRight;
+    public Image characterLeft;
+    public Image characterRight;
     public TextMeshProUGUI dialogueContanter;
 
     public float PlayWordSpeed;
@@ -17,6 +17,9 @@ public class DialoguePanel : MonoBehaviour
     private string text = "";
     private int curWord;
     public bool dialogueEnd { get; private set; }
+
+    public float JumpTimer = .1f;
+    public float JumpCounter;
 
     private void Start()
     {
@@ -29,34 +32,41 @@ public class DialoguePanel : MonoBehaviour
         {
             PlayWordSpeed -= Time.deltaTime;
         }
+
+        if (JumpCounter > 0)
+        {
+            JumpCounter -= Time.deltaTime;
+        }
         
         if (text.Length > dialogueContanter.text.Length && curWord < text.Length && PlayWordSpeed < 0)
         {
             dialogueContanter.text += text[curWord ++ ].ToString();
             dialogueEnd = false;
             PlayWordSpeed = PlayWordTimer;
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                dialogueContanter.text = text;
-                curWord = text.Length;
-            }
         }
         else if(text.Length <= dialogueContanter.text.Length && curWord >= text.Length)
         {
             dialogueEnd = true;
+            JumpCounter = JumpTimer;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Space) && JumpCounter < 0)
+        {
+            dialogueContanter.text = text;
+            curWord = text.Length;
         }
     }
 
-    public void SetImage(Texture _sprite1, Texture _sprite2)
+    public void SetImage(Sprite _sprite1, Sprite _sprite2)
     {
-        characterLeft.texture = _sprite1;
-        characterRight.texture = _sprite2;
+        characterLeft.sprite = _sprite1;
+        characterRight.sprite = _sprite2;
     }
 
     public void SetImage()
     {
-        characterLeft.texture = null;
-        characterRight.texture = null;
+        characterLeft.sprite = null;
+        characterRight.sprite = null;
     }
 
     public void PlayDialogue(string dialogue, float playeSpeed)
@@ -75,13 +85,13 @@ public class DialoguePanel : MonoBehaviour
         characterRight.color = Color.black;
     }
 
-    public void HideCharacterLeft()
+    public void ShowCharacterRight()
     {
         characterLeft.color = Color.black;
         characterRight.color = Color.white;
     }
     
-    public void HideCharacterRight()
+    public void ShowCharacterLeft()
     {
         characterLeft.color = Color.white;
         characterRight.color = Color.black;

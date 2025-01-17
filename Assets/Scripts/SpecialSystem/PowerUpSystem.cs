@@ -1,164 +1,68 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PowerUpSystem : MonoBehaviour
 {
-    public PlayerInputControl inputActions;
     public GameObject background1;
-    public Character player;
-    public Contants constants;
-    private List<Enemy> enemies = new List<Enemy>();
+    public GameObject player;
+    private Character playerCharacter; // player攻击力，防御力
+    public Contants constants; // player速度
 
-    public bool powerUpActive = false;
-    public bool powerUpCooldown = false;
-    private float powerUpDuration = 10f;
-    public float powerUpTimer = 0f;
-    private Dictionary<Enemy, EnemyData> originalEnemyData = new Dictionary<Enemy, EnemyData>();
-    private PlayerData originalPlayerData;
+    //进入特殊系统前的数值
+    private float playerInitialAttack;
+    private float playerInitialDefense;
+    private float playerInitialSpeed;
 
-    // 存储 Enemy 的原始数据
-    private class EnemyData
-    {
-        public float attackPower;
-        public float currentSpeed;
-    }
-
-    // 存储 Player 的原始数据
-    private class PlayerData
-    {
-        public PlayerData(float _attackPower, float _currentSpeed, float _defensePower)
-        {
-            attackPower = _attackPower;
-            currentSpeed = _currentSpeed;
-            defensePower = _defensePower;
-        }
-        public float attackPower;
-        public float currentSpeed;
-        public float defensePower;
-    }
-
-    private void Awake()
-    {
-        inputActions = new PlayerInputControl();
-    }
+    [Header("特殊系统状态")]
+    public bool canTrigger = true;
+    public float timer;
+    public float triggerDuration; //持续时间
 
     private void Start()
     {
-        // 查找玩家对象并获取组件
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-        {
-            player = playerObj.GetComponent<Character>();
-            if (player == null)
-            {
-                Debug.LogError("Player not found!");
-                return;
-            }
-        }
-        else
-        {
-            Debug.LogError("Player object not found!");
-            return;
-        }
+        playerCharacter = player.GetComponent<Character>();
 
-        // 存储玩家的原始数据
-        originalPlayerData = new PlayerData(player.attackPower, constants.MaxRun, player.defensePower);
-
-        // 查找场景中的各种敌人
-        FindEnemies();
-    }
-
-    private void FindEnemies()
-    {
-        RedEnemy[] redEnemies = GameObject.FindObjectsOfType<RedEnemy>();
-        BlueEnemy[] blueEnemies = GameObject.FindObjectsOfType<BlueEnemy>();
-        Boss[] bosses = GameObject.FindObjectsOfType<Boss>();
-        enemies.AddRange(redEnemies);
-        enemies.AddRange(blueEnemies);
-        enemies.AddRange(bosses);
-    }
-
-    private void OnEnable()
-    {
-        inputActions.Enable();
-        inputActions.Gameplay.PowerUp.started += OnActionTriggered;
-    }
-
-    private void OnDisable()
-    {
-        inputActions.Gameplay.PowerUp.started -= OnActionTriggered;
-        inputActions.Disable();
-    }
-
-    private void OnActionTriggered(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            if (!powerUpActive && !powerUpCooldown)
-            {
-                Debug.Log("press R and power up");
-                TriggerPowerUp();
-            }
-        }
-    }
-
-    private void TriggerPowerUp()
-    {
-        if (background1 == null)
-        {
-            Debug.LogError("Background1 not found!");
-            return;
-        }
-
-        background1.SetActive(false);
-        powerUpActive = true;
-        powerUpCooldown = true;
-        powerUpTimer = powerUpDuration;
-
-        // 存储原始数据
-        originalEnemyData.Clear();
-        foreach (var enemy in enemies)
-        {
-            originalEnemyData[enemy] = new EnemyData
-            {
-                attackPower = enemy.attackPower,
-                currentSpeed = enemy.currentSpeed
-            };
-            enemy.attackPower *= 0.5f;
-            enemy.currentSpeed *= 0.8f;
-        }
-        player.attackPower *= 1.25f;
-        constants.MaxRun *= 1.1f;
-        player.defensePower *= 1.25f;
+        //存储初始值
+        playerInitialAttack = playerCharacter.attackPower;
+        playerInitialDefense = playerCharacter.defensePower;
+        playerInitialSpeed = constants.MaxRun;
     }
 
     private void Update()
     {
-        if (powerUpActive)
+        if (Input.GetKeyDown(KeyCode.R) && canTrigger)
         {
-            powerUpTimer -= Time.deltaTime;
-            if (powerUpTimer <= 0)
+            Debug.Log("press R");
+            // 触发功能
+            canTrigger = false;
+            background1.SetActive(false);
+
+            // 修改 Player 属性
+            playerCharacter.attackPower = playerInitialAttack * 1.25f;
+            playerCharacter.defensePower = playerInitialDefense * 1.25f;
+            constants.MaxRun = playerInitialSpeed * 1.1f;
+
+            timer = 0f;
+        }
+
+        if (!canTrigger)
+        {
+            timer += Time.deltaTime;
+            if (timer >= triggerDuration)
             {
-                RestoreOriginalValues();
+                // 恢复属性
+                playerCharacter.attackPower = playerInitialAttack;
+                playerCharacter.defensePower = playerInitialDefense;
+                constants.MaxRun = playerInitialSpeed;
+
+                background1.SetActive(true);
+                canTrigger = true;
             }
         }
-    }
-
-    private void RestoreOriginalValues()
-    {
-        foreach (var pair in originalEnemyData)
-        {
-            pair.Key.attackPower = pair.Value.attackPower;
-            pair.Key.currentSpeed = pair.Value.currentSpeed;
-        }
-        player.attackPower = originalPlayerData.attackPower;
-        constants.MaxRun = originalPlayerData.currentSpeed;
-        player.defensePower = originalPlayerData.defensePower;
-        background1.SetActive(true);
-        powerUpActive = false;
-        powerUpCooldown = false;
     }
 }

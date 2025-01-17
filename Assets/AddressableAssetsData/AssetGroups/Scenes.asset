@@ -12,11 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: Scenes
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
+  m_GroupName: Scenes
   m_Data:
     m_SerializedData: []
   m_GUID: cc9fed2cb3eabf44885fbf6c093e9ec2
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 18f881a2d8c396644b99004d1c25121f
+    m_Address: BossScene
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
+    m_Address: Game
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: feed60c8f8ad501438f5279fcfd6b3c5, type: 2}
   m_SchemaSet:

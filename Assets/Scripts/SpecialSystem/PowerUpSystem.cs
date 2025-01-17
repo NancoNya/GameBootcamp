@@ -7,9 +7,9 @@ using UnityEngine.InputSystem;
 public class PowerUpSystem : MonoBehaviour
 {
     public PlayerInputControl inputActions;
-    public GameObject backgorund1;
-    public Character player;  //player��������������
-    public Contants contants;  //player�ٶ�
+    public GameObject background1;
+    public Character player;
+    public Contants constants;
     private List<Enemy> enemies = new List<Enemy>();
 
     public bool powerUpActive = false;
@@ -17,19 +17,19 @@ public class PowerUpSystem : MonoBehaviour
     private float powerUpDuration = 10f;
     public float powerUpTimer = 0f;
     private Dictionary<Enemy, EnemyData> originalEnemyData = new Dictionary<Enemy, EnemyData>();
-    private playerData originalPlayerData;
+    private PlayerData originalPlayerData;
 
-    //�洢 Enemy ��ԭʼ����
+    // 存储 Enemy 的原始数据
     private class EnemyData
     {
         public float attackPower;
         public float currentSpeed;
     }
 
-    //�洢 Player ��ԭʼ����
-    private class playerData
+    // 存储 Player 的原始数据
+    private class PlayerData
     {
-        public playerData(float _attackPower, float _currentSpeed, float _defensePower)
+        public PlayerData(float _attackPower, float _currentSpeed, float _defensePower)
         {
             attackPower = _attackPower;
             currentSpeed = _currentSpeed;
@@ -44,35 +44,41 @@ public class PowerUpSystem : MonoBehaviour
     {
         inputActions = new PlayerInputControl();
     }
+
     private void Start()
     {
-        GameObject playerForSave = GameObject.Find("Player");
-        if(playerForSave != null)
+        // 查找玩家对象并获取组件
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
         {
-            PlayerData playerData = playerForSave.GetComponent<PlayerData>();
+            player = playerObj.GetComponent<Character>();
+            if (player == null)
+            {
+                Debug.LogError("Player not found!");
+                return;
+            }
         }
-
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
-        if (player == null)
+        else
         {
-            Debug.LogError("Player not found!");
+            Debug.LogError("Player object not found!");
             return;
         }
 
-        // �������е� Enemy �������
+        // 存储玩家的原始数据
+        originalPlayerData = new PlayerData(player.attackPower, constants.MaxRun, player.defensePower);
+
+        // 查找场景中的各种敌人
+        FindEnemies();
+    }
+
+    private void FindEnemies()
+    {
         RedEnemy[] redEnemies = GameObject.FindObjectsOfType<RedEnemy>();
         BlueEnemy[] blueEnemies = GameObject.FindObjectsOfType<BlueEnemy>();
         Boss[] bosses = GameObject.FindObjectsOfType<Boss>();
         enemies.AddRange(redEnemies);
         enemies.AddRange(blueEnemies);
         enemies.AddRange(bosses);
-
-        originalPlayerData = new playerData(player.attackPower, contants.MaxRun, player.defensePower);
-        /*{
-            attackPower = player.attackPower,
-            currentSpeed = contants.MaxRun,
-            defensePower = player.defensePower
-        };*/
     }
 
     private void OnEnable()
@@ -89,34 +95,30 @@ public class PowerUpSystem : MonoBehaviour
 
     private void OnActionTriggered(InputAction.CallbackContext context)
     {
-        if (context.action.name == "PowerUp")
+        if (context.phase == InputActionPhase.Performed)
         {
-            if (context.phase == InputActionPhase.Performed)
+            if (!powerUpActive && !powerUpCooldown)
             {
-                if (!powerUpActive && !powerUpCooldown)
-                {
-                    Debug.Log("press R and power up");
-                    
-                    TriggerPowerUp();
-                }
+                Debug.Log("press R and power up");
+                TriggerPowerUp();
             }
         }
     }
 
     private void TriggerPowerUp()
     {
-        if (backgorund1 == null)
+        if (background1 == null)
         {
-            Debug.LogError("Backgorund1 not found!");
+            Debug.LogError("Background1 not found!");
             return;
         }
 
-        backgorund1.SetActive(false);
+        background1.SetActive(false);
         powerUpActive = true;
         powerUpCooldown = true;
         powerUpTimer = powerUpDuration;
 
-        // �洢ԭʼ����
+        // 存储原始数据
         originalEnemyData.Clear();
         foreach (var enemy in enemies)
         {
@@ -129,7 +131,7 @@ public class PowerUpSystem : MonoBehaviour
             enemy.currentSpeed *= 0.8f;
         }
         player.attackPower *= 1.25f;
-        contants.MaxRun *= 1.1f;
+        constants.MaxRun *= 1.1f;
         player.defensePower *= 1.25f;
     }
 
@@ -153,9 +155,9 @@ public class PowerUpSystem : MonoBehaviour
             pair.Key.currentSpeed = pair.Value.currentSpeed;
         }
         player.attackPower = originalPlayerData.attackPower;
-        contants.MaxRun = originalPlayerData.currentSpeed;
+        constants.MaxRun = originalPlayerData.currentSpeed;
         player.defensePower = originalPlayerData.defensePower;
-        backgorund1.SetActive(true);
+        background1.SetActive(true);
         powerUpActive = false;
         powerUpCooldown = false;
     }

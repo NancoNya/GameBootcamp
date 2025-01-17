@@ -58,17 +58,10 @@ public class Character : MonoBehaviour
 
     public void GetDamage(Attack attacker)
     {
-        if (attacker == null)
-        {
-            Debug.LogError("Attacker is null!");
-            return;
-        }
-        
         if (invulnerable || currentHealth <= 0)
             return;
 
         var Damage = attacker.attackDamage;
-       Debug.Log("damage " + attacker.attackDamage);
             if (DoubleHurt) Damage *= 2;
             if (ThreeHurt) Damage *= 3;
             if (currentHealth - Damage > 0)

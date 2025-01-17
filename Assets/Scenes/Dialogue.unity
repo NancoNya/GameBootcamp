@@ -333,8 +333,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6566e4cdaf91fb349953799d700e12d6, type: 2}
   _dialoguePanel: {fileID: 892130458}
   _dialogueScript: {fileID: 11400000, guid: a17fcc9ce640c9848aae450c73b5745a, type: 2}
-  black: {fileID: 21300000, guid: ad307a8f0d1a0b7488a732e8f3f08725, type: 3}
-  me: {fileID: 21300000, guid: ccac094a41b48c5488e7cfb53e0c51dc, type: 3}
+  black: {fileID: 21300000, guid: 70f11259b45e6144b96a5a40720d03ee, type: 3}
+  me: {fileID: -1024175681, guid: 843a5f679e5033643839fa178cd9e00d, type: 3}
+  A: {fileID: 21300000, guid: b7661c57360a41f479655e8cfce3936c, type: 3}
+  B: {fileID: 21300000, guid: 70f11259b45e6144b96a5a40720d03ee, type: 3}
   playSpeed: 0.1
   TheFirst: 1
   ProglueEnd: 0
@@ -451,6 +453,8 @@ MonoBehaviour:
   characterRight: {fileID: 1913042554}
   dialogueContanter: {fileID: 82768274}
   PlayWordSpeed: 0
+  JumpTimer: 0.1
+  JumpCounter: 0
 --- !u!114 &892130459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,7 +742,7 @@ RectTransform:
   m_GameObject: {fileID: 1913042550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 5, z: 1}
+  m_LocalScale: {x: 4, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 18515073}
@@ -813,7 +817,7 @@ RectTransform:
   m_GameObject: {fileID: 1913358146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 5, z: 1}
+  m_LocalScale: {x: 4, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657835267}
@@ -851,7 +855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b7661c57360a41f479655e8cfce3936c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

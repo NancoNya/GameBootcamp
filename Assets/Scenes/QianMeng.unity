@@ -5831,6 +5831,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   contants: {fileID: 11400000, guid: 673ddb09535def140bb5f52ad3b3a5f1, type: 2}
   FreezeCooldownTimer: 0
+  Dead: 0
 --- !u!4 &1280972239
 Transform:
   m_ObjectHideFlags: 0
@@ -5893,6 +5894,18 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1280972238}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 426343367}
         m_TargetAssemblyTypeName: AnimationPara, Assembly-CSharp
         m_MethodName: DieAni
@@ -10662,7 +10675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1957383339
 Transform:
   m_ObjectHideFlags: 0
@@ -10685,7 +10698,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957383338}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

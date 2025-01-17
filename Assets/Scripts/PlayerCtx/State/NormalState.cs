@@ -5,7 +5,6 @@ public class NormalState : PlayerState
 {
     public NormalState(PlayerController playerController) : base(EActionState.normal, playerController){}
     
-
     public override void Start()
     {
         playerController.MaxFall = playerController.contants.MaxFall;

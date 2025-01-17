@@ -9,6 +9,8 @@ public class DialogueDataImporter : MonoBehaviour
 
     public Sprite black;
     public Sprite me;
+    public Sprite A;
+    public Sprite B;
     
     private int dialogueDataAssetIndex = 0;
     private int index = 0;
@@ -42,6 +44,7 @@ public class DialogueDataImporter : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.Space) || TheFirst) && !ProglueEnd && _dialogueScript.chapters[0].lines[linesIndex].content != "旁白" && _dialoguePanel.dialogueEnd)
         {
+            _dialoguePanel.SetImage(A, B);
             if (_dialogueScript.chapters[0].lines[linesIndex].speaker == "A") _dialoguePanel.ShowCharacterLeft();
             else if(_dialogueScript.chapters[0].lines[linesIndex].speaker == "B") _dialoguePanel.ShowCharacterRight();
             else if (_dialogueScript.chapters[0].lines[linesIndex].speaker == "旁白")
@@ -73,6 +76,7 @@ public class DialogueDataImporter : MonoBehaviour
     {
         if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Flag == "@" && _dialoguePanel.dialogueEnd && (Input.GetKeyDown(KeyCode.Space) || TheFirst))
         {
+            _dialoguePanel.SetImage(me, black);
             if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Character == "Black") _dialoguePanel.ShowCharacterRight();
             else if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Character == "Me") _dialoguePanel.ShowCharacterLeft();
             else

@@ -70,9 +70,9 @@ public class PlayerData : MonoBehaviour
         character.currentHealth = loadSceneSO.PlayerData.PlayerCurrentHealth;
     }
 
-    [UnityEditor.MenuItem("Developer/Delete Player Data Prefs")]
+    /*[UnityEditor.MenuItem("Developer/Delete Player Data Prefs")]
     public static void DeletePlayerDataPrefs()
     {
         PlayerPrefs.DeleteAll();
-    }
+    }*/
 }

@@ -8,7 +8,7 @@ public class Teleport : MonoBehaviour
     public Transform positionToGo;
     public bool isTriggered = false;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {

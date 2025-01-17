@@ -55,6 +55,8 @@ public class Enemy : MonoBehaviour
     public float currentHealth;
     public float attackPower;
     public float defensePower;
+    
+  
 
     protected virtual void Awake()
     {
@@ -189,5 +191,5 @@ public class Enemy : MonoBehaviour
         Destroy(this.gameObject);
     }
    
-
+    
 }

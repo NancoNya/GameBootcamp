@@ -26,7 +26,6 @@ public class Character : MonoBehaviour
     public bool OneHit_Kill;
     public bool DoubleHurt;
     public bool ThreeHurt;
-    
 
     public UnityEvent<Character> OnHealthChange;
     public UnityEvent<Transform> OnTakeDamage;
@@ -59,11 +58,17 @@ public class Character : MonoBehaviour
 
     public void GetDamage(Attack attacker)
     {
+        if (attacker == null)
+        {
+            Debug.LogError("Attacker is null!");
+            return;
+        }
+        
         if (invulnerable || currentHealth <= 0)
             return;
 
         var Damage = attacker.attackDamage;
-       
+       Debug.Log("damage " + attacker.attackDamage);
             if (DoubleHurt) Damage *= 2;
             if (ThreeHurt) Damage *= 3;
             if (currentHealth - Damage > 0)
@@ -93,5 +98,4 @@ public class Character : MonoBehaviour
             invulnerableCounter = invulnerableDuration;
         }
     }
-
 }

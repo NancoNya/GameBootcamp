@@ -12,3 +12,4 @@ public class EnemyAttack : MonoBehaviour
             collision.GetComponent<Character>()?.GetDamage(Attack);
     }
 }
+

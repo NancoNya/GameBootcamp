@@ -8,8 +8,8 @@ public class PowerUpSystem : MonoBehaviour
 {
     public PlayerInputControl inputActions;
     public GameObject backgorund1;
-    public Character player;  //player¹¥»÷Á¦£¬·ÀÓùÁ¦
-    public Contants contants;  //playerËÙ¶È
+    public Character player;  //playerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public Contants contants;  //playerï¿½Ù¶ï¿½
     private List<Enemy> enemies = new List<Enemy>();
 
     public bool powerUpActive = false;
@@ -17,18 +17,24 @@ public class PowerUpSystem : MonoBehaviour
     private float powerUpDuration = 10f;
     public float powerUpTimer = 0f;
     private Dictionary<Enemy, EnemyData> originalEnemyData = new Dictionary<Enemy, EnemyData>();
-    private PlayerData originalPlayerData;
+    private playerData originalPlayerData;
 
-    //´æ´¢ Enemy µÄÔ­Ê¼Êý¾Ý
+    //ï¿½æ´¢ Enemy ï¿½ï¿½Ô­Ê¼ï¿½ï¿½ï¿½ï¿½
     private class EnemyData
     {
         public float attackPower;
         public float currentSpeed;
     }
 
-    //´æ´¢ Player µÄÔ­Ê¼Êý¾Ý
-    private class PlayerData
+    //ï¿½æ´¢ Player ï¿½ï¿½Ô­Ê¼ï¿½ï¿½ï¿½ï¿½
+    private class playerData
     {
+        public playerData(float _attackPower, float _currentSpeed, float _defensePower)
+        {
+            attackPower = _attackPower;
+            currentSpeed = _currentSpeed;
+            defensePower = _defensePower;
+        }
         public float attackPower;
         public float currentSpeed;
         public float defensePower;
@@ -53,7 +59,7 @@ public class PowerUpSystem : MonoBehaviour
             return;
         }
 
-        // ²éÕÒËùÓÐµÄ Enemy ×ÓÀà×é¼þ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ Enemy ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         RedEnemy[] redEnemies = GameObject.FindObjectsOfType<RedEnemy>();
         BlueEnemy[] blueEnemies = GameObject.FindObjectsOfType<BlueEnemy>();
         Boss[] bosses = GameObject.FindObjectsOfType<Boss>();
@@ -61,12 +67,12 @@ public class PowerUpSystem : MonoBehaviour
         enemies.AddRange(blueEnemies);
         enemies.AddRange(bosses);
 
-        originalPlayerData = new PlayerData
-        {
+        originalPlayerData = new playerData(player.attackPower, contants.MaxRun, player.defensePower);
+        /*{
             attackPower = player.attackPower,
             currentSpeed = contants.MaxRun,
             defensePower = player.defensePower
-        };
+        };*/
     }
 
     private void OnEnable()
@@ -110,7 +116,7 @@ public class PowerUpSystem : MonoBehaviour
         powerUpCooldown = true;
         powerUpTimer = powerUpDuration;
 
-        // ´æ´¢Ô­Ê¼Êý¾Ý
+        // ï¿½æ´¢Ô­Ê¼ï¿½ï¿½ï¿½ï¿½
         originalEnemyData.Clear();
         foreach (var enemy in enemies)
         {

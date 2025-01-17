@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss : Enemy
+public class Boss : Enemy,IReSpond
 {
     public Attack attack2;
     private Character character;
+
+    public bool CanReSpond;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -15,7 +18,6 @@ public class Boss : Enemy
         dead = new BossDeadState();
         hurt = new BossHurtState();
         character = GetComponent<Character>();
-
     }
 
     protected override void Update()
@@ -97,4 +99,19 @@ public class Boss : Enemy
         }
         
     }
+
+    public bool CheckReSpond()
+    {
+        if (CanReSpond)
+        {
+            //击退
+            return true;
+        }
+        
+        return false;
+    }
+
+    public void SetReSpond() => CanReSpond = true;
+
+    public void StopReSpond() => CanReSpond = false;
 }

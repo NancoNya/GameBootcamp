@@ -12,7 +12,7 @@ public class DialogueTrigger : MonoSigleton<DialogueTrigger>
 
     public GameObject UI;
 
-    /*private void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && dialogueIndex <= 7)
         {
@@ -21,7 +21,7 @@ public class DialogueTrigger : MonoSigleton<DialogueTrigger>
             if (ProdialogueEnd)
                 StartCoroutine(AddDialogueIndex());
         }
-    }*/
+    }
 
     public void PlayDialogue()
     {

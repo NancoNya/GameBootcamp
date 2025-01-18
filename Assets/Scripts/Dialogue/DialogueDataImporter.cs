@@ -47,7 +47,7 @@ public class DialogueDataImporter : MonoBehaviour
             _dialoguePanel.SetImage(A, B);
             if (_dialogueScript.chapters[0].lines[linesIndex].speaker == "A") _dialoguePanel.ShowCharacterLeft();
             else if(_dialogueScript.chapters[0].lines[linesIndex].speaker == "B") _dialoguePanel.ShowCharacterRight();
-            else if (_dialogueScript.chapters[0].lines[linesIndex].speaker == "旁白")
+            else
             {
                 _dialoguePanel.HideCharacter();
             }

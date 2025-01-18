@@ -15,6 +15,7 @@ public class Player : MonoSigleton<Player>,IEffectControl
     public float FreezeCooldownTimer;
     public bool Dead;
     public bool isHit;
+    public bool stop;
     
 
     private void Awake()
@@ -42,11 +43,14 @@ public class Player : MonoSigleton<Player>,IEffectControl
         {
             Dead = true;
         }
-
-        if (UpdateTime(deltaTime) && !Dead && !isHit)
+        
+        if (!stop)
         {
-            GameInput.Update(deltaTime);
-            playerController.Update(deltaTime);
+            if (UpdateTime(deltaTime) && !Dead && !isHit)
+            {
+                GameInput.Update(deltaTime);
+                playerController.Update(deltaTime);
+            }
         }
     }
 

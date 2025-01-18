@@ -8,6 +8,8 @@ public class Player : MonoSigleton<Player>,IEffectControl
     public BoxCollider2D boxCollider;
     public Rigidbody2D playerRigidbody;
     public Animator animator;
+    public Animator RedAttack;
+    public Animator RedTail;
     private Character _character;
     
     public Contants contants;
@@ -34,6 +36,16 @@ public class Player : MonoSigleton<Player>,IEffectControl
     private void Update()
     {
         float deltaTime = Time.unscaledDeltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Z) && !stop)
+        {
+            StartCoroutine(QRedDash());
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && !stop)
+        {
+            StartCoroutine(PlayRedContinue());
+        }
 
         if (_character.currentHealth > 0)
         {
@@ -103,5 +115,27 @@ public class Player : MonoSigleton<Player>,IEffectControl
     public void HurtAni()
     {
         animator.SetTrigger(AniPara.Hurt.ToString());
+    }
+
+    public void PlayRedAttack() => RedAttack.SetTrigger("RedAttack");
+    
+    public void PlayRedTail() => RedTail.SetTrigger("RedTail");
+
+    private IEnumerator QRedDash()
+    {
+        stop = true;
+        animator.SetTrigger("RedAttack");
+        yield return new WaitForSeconds(1.3f);
+        transform.position = new Vector2(transform.position.x + playerController.Facing * 6.45f, transform.position.y);
+        yield return new WaitForSeconds(2.5f);
+        stop = false;
+    }
+
+    private IEnumerator PlayRedContinue()
+    {
+        stop = true;
+        animator.SetTrigger("RedContinue");
+        yield return new WaitForSeconds(1.3f);
+        stop = false;
     }
 }

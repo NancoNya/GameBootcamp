@@ -37,11 +37,11 @@ MonoBehaviour:
   SuperJumpH: 26
   SuperWallJumpH: 17
   SuperWallJumpSpeed: 16
-  DashSpeed: 10
-  DashTime: 0.4
+  DashSpeed: 13
+  DashTime: 0.37
   MaxDashes: 1
   EndDashSpeed: 16
-  DashCooldown: 0.2
+  DashCooldown: 3
   DashRefillCooldown: 0.1
   AttackCooldownTimer: 0.2
   AttackDecreaseX: 0

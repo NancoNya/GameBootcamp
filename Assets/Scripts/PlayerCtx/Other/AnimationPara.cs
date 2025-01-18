@@ -31,4 +31,7 @@ public class AnimationPara : MonoBehaviour
     public void PlayHeartBreak() => AudioManager.Instance.PlayHeartBreak();
     public void PlayWalk() => AudioManager.Instance.Playwalk();
 
+    public void PlayRedReady() => Player.Instance.PlayRedAttack();
+    public void PlayRedTail() => Player.Instance.PlayRedTail();
+
 }

@@ -12,16 +12,16 @@ public class DialogueTrigger : MonoSigleton<DialogueTrigger>
 
     public GameObject UI;
 
-    private void Update()
+    /*private void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.E) && dialogueIndex <= 7)
+        if (Input.GetKeyDown(KeyCode.E) && dialogueIndex <= 7)
         {
             GameInput.ConsumeAllButtons();
             SceneManager.LoadScene(1, LoadSceneMode.Additive);
             if (ProdialogueEnd)
                 StartCoroutine(AddDialogueIndex());
-        }*/
-    }
+        }
+    }*/
 
     public void PlayDialogue()
     {

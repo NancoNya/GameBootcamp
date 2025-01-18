@@ -6,6 +6,7 @@ public class Boss : Enemy,IReSpond
 {
     public Attack attack2;
     private Character character;
+    public Animator hitAnimator;
 
     public bool CanReSpond;
     
@@ -114,4 +115,11 @@ public class Boss : Enemy,IReSpond
     public void SetReSpond() => CanReSpond = true;
 
     public void StopReSpond() => CanReSpond = false;
+    
+    public void GetHit()
+    {
+        faceDir = new Vector2(-Player.Instance.playerController.Facing, 1);
+        GetComponent<Rigidbody2D>().AddForce(3f * -faceDir, ForceMode2D.Impulse);
+        hitAnimator.SetTrigger("Hit");
+    }
 }

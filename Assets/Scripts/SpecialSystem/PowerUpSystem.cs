@@ -9,7 +9,6 @@ using UnityEngine.UIElements;
 public class PowerUpSystem : MonoBehaviour
 {
     public GameObject background1;
-    public GameObject player;
     private Character playerCharacter; // player攻击力，防御力
     public Contants constants; // player速度
 
@@ -25,7 +24,7 @@ public class PowerUpSystem : MonoBehaviour
 
     private void Start()
     {
-        playerCharacter = player.GetComponent<Character>();
+        playerCharacter = Player.Instance.gameObject.GetComponent<Character>();
 
         //存储初始值
         playerInitialAttack = playerCharacter.attackPower;

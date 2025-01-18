@@ -7,15 +7,13 @@ public class PlayerAttack : MonoBehaviour
 {
     public Attack Attack;
 
-    private void Start()
-    {
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Attack Enemy");
-        Debug.Log("Damage  " + Attack.attackDamage);
         if (collision.CompareTag("Enemy"))
+        {
+            AttackScene.Instance.HitPause(0.1f);
+            AttackScene.Instance.CameraShake(.1f);
             collision.GetComponentInParent<Character>()?.GetDamage(Attack);
+        }
     }
 }

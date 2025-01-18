@@ -78,7 +78,6 @@ public class Enemy : MonoBehaviour
         if(faceDirNoNormalized.x>0)faceDir=new Vector3(1, 0, 0);
         else faceDir=new Vector3(-1, 0, 0);
         
-        
         currentState.Update();
         TimeCounter();
     }
@@ -190,6 +189,13 @@ public class Enemy : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-   
-    
+
+    public void PlayEnemyAttack1() => AudioManager.Instance.PlayenemyAttack1();
+
+    public void PlayEnemyAttack2() => AudioManager.Instance.PlayenemyAttack2();
+    public void PlayEnemyAttack3() => AudioManager.Instance.PlayenemyAttack3();
+    public void PlayEnemyHurt1() => AudioManager.Instance.PlayenemyHurt1();
+    public void PlayEnemyHurt2() => AudioManager.Instance.PlayenemyHurt2();
+    public void PlayEnemyHurt3() => AudioManager.Instance.PlayenemyHurt3();
+    public void PlayEnemyRun() => AudioManager.Instance.PlayenemyRun();
 }

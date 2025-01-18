@@ -13,7 +13,8 @@ public enum AniPara
     ComboCount,
     slide,
     Dead,
-    ReBound
+    ReBound,
+    Hurt
 }
 
 public class AniCtx 

@@ -1,15 +1,14 @@
-using System;
+
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Player : MonoSigleton<Player>, IEffectControl
+public class Player : MonoSigleton<Player>,IEffectControl
 {
     public PlayerController playerController;
     public BoxCollider2D boxCollider;
     public Rigidbody2D playerRigidbody;
     public Animator animator;
+    private Character _character;
     
     public Contants contants;
     
@@ -22,6 +21,7 @@ public class Player : MonoSigleton<Player>, IEffectControl
         boxCollider = GetComponent<BoxCollider2D>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        _character = GetComponent<Character>();
     }
 
     private void Start()
@@ -32,7 +32,16 @@ public class Player : MonoSigleton<Player>, IEffectControl
     private void Update()
     {
         float deltaTime = Time.unscaledDeltaTime;
-        
+
+        if (_character.currentHealth > 0)
+        {
+            Dead = false;
+        }
+        else
+        {
+            Dead = true;
+        }
+
         if (UpdateTime(deltaTime) && !Dead)
         {
             GameInput.Update(deltaTime);
@@ -42,7 +51,8 @@ public class Player : MonoSigleton<Player>, IEffectControl
 
     private void FixedUpdate()
     {
-        playerController.FixedUpdate();
+        if (!Dead)
+         playerController.FixedUpdate();
     }
 
     public bool UpdateTime(float deltaTime)
@@ -74,12 +84,10 @@ public class Player : MonoSigleton<Player>, IEffectControl
         }
     }
 
-    public void ChameraShake(float chargeTime)
+   
+
+    public void HurtAni()
     {
-        
+        animator.SetTrigger(AniPara.Hurt.ToString());
     }
-    
-    public void Die() => Dead = true;
-    
-    public void Respawn() => Dead = false;
 }

@@ -5,5 +5,4 @@ using UnityEngine;
 public interface IEffectControl
 {
     public void Freeze(float freezeTime);
-    public void ChameraShake(float chargeTime);
 }

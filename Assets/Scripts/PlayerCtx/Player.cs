@@ -14,6 +14,7 @@ public class Player : MonoSigleton<Player>,IEffectControl
     
     public float FreezeCooldownTimer;
     public bool Dead;
+    public bool isHit;
     
 
     private void Awake()
@@ -42,7 +43,7 @@ public class Player : MonoSigleton<Player>,IEffectControl
             Dead = true;
         }
 
-        if (UpdateTime(deltaTime) && !Dead)
+        if (UpdateTime(deltaTime) && !Dead && !isHit)
         {
             GameInput.Update(deltaTime);
             playerController.Update(deltaTime);
@@ -84,7 +85,15 @@ public class Player : MonoSigleton<Player>,IEffectControl
         }
     }
 
-   
+    public void Hurt(float hurtDirection) => StartCoroutine(HurtFoce(hurtDirection));
+
+    public IEnumerator HurtFoce(float hurtDirection)
+    {
+        isHit = true;
+        playerRigidbody.velocity = new Vector2(20f * hurtDirection, 1);
+        yield return new WaitForSeconds(0.1f);
+        isHit = false;
+    }
 
     public void HurtAni()
     {

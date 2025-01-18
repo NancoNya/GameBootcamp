@@ -36,93 +36,85 @@ public class AudioManager : MonoSigleton<AudioManager>
       BGMSource.Play();
    }
 
-   public void PlayenemyAttack1()
+   public void PlayenemyAttack1(AudioSource resource)
    {
-      audioSource2.clip = enemyAttack1;
-      audioSource2.Play();
+      resource.clip = enemyAttack1;
+      resource.Play();
    }
 
-   public void PlayenemyAttack2()
+   public void PlayenemyAttack2(AudioSource resource)
    {
       audioSource2.clip = enemyAttack2;
       audioSource2.Play();
    }
    
-   public void PlayenemyAttack3()
+   public void PlayenemyAttack3(AudioSource resource)
    {
-      audioSource2.clip = enemyAttack3;
-      audioSource2.Play();
+      resource.clip = enemyAttack3;
+      resource.Play();
    }
 
-   public void PlayenemyHurt1()
+   public void PlayenemyHurt1(AudioSource resource)
    {
-      audioSource2.clip = enemyHurt1;
-      audioSource2.Play();
+      resource.clip = enemyHurt1;
+      resource.Play();
    }
 
-   public void PlayenemyHurt2()
+   public void PlayenemyHurt2(AudioSource resource)
    {
-      audioSource2.clip = enemyHurt2;
-      audioSource2.Play();
+      resource.clip = enemyHurt2;
+      resource.Play();
    }
 
-   public void PlayenemyHurt3()
+   public void PlayenemyHurt3(AudioSource resource)
    {
-      audioSource2.clip = enemyHurt3;
-      audioSource2.Play();
+      resource.clip = enemyHurt3;
+      resource.Play();
    }
 
-   public void PlayenemyRun()
+   public void PlayenemyRun(AudioSource resource)
    {
-      audioSource2.clip = run;
-      audioSource2.Play();
+      resource.clip = run;
+      resource.Play();
    }
   
    public void Playattack1()
    {
-      audioSource.clip = attack1;
-      audioSource.Play();
+      audioSource.PlayOneShot(attack1);
    }
 
    public void Playattack2()
    {
-      audioSource.clip = attack2;
-      audioSource.Play();
+      audioSource.PlayOneShot(attack2);
    }
 
    public void Playattack3()
    {
-      audioSource.clip = attack3;
-      audioSource.Play();
+      audioSource.PlayOneShot(attack3);
    }
 
    public void Playrun()
    {
-      audioSource.clip = run;
-      audioSource.Play();
+      audioSource.PlayOneShot(run);
    }
 
    public void Playwalk()
    {
-      audioSource.clip = walk;
-      audioSource.Play();
+      audioSource.PlayOneShot(walk);
    }
 
    public void Playjump()
    {
-      audioSource.clip = jump;
-      audioSource.Play();
+      audioSource.PlayOneShot(jump);
    }
 
    public void Playrush()
    {
-      audioSource.clip = rush;
-      audioSource.Play();
+      audioSource.PlayOneShot(rush);
    }
 
    public void PlayHeartBreak()
    {
-      audioSource.clip = HeartBreak;
-      audioSource.Play();
+      audioSource.PlayOneShot(HeartBreak);
    }
 }

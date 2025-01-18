@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: New Load Scene SO
   m_EditorClassIdentifier: 
   DefaultPlayerData:
-    PlayerPosition: {x: 0, y: 0, z: 0}
+    PlayerPosition: {x: -54.58, y: -41.32, z: 0}
     PlayerCurrentHealth: 100
   PlayerData:
     PlayerPosition: {x: 3.597345, y: -0.23845832, z: 0}

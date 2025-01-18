@@ -7,7 +7,9 @@ public class BossHurtState : EnemyBaseState
     public override void OnEnter(Enemy enemy)
     {
         currentEnemy = enemy;
-        currentEnemy.currentSpeed = 0;
+        currentEnemy.transform.localScale = new Vector2(Player.Instance.playerController.Facing, 1);
+        //currentEnemy.currentSpeed = 0;
+        currentEnemy.rb.velocity = new Vector2(20f * Player.Instance.playerController.Facing,  1);
         currentEnemy.anim.SetTrigger("hurt");
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlueEnemy : Enemy
 {
     public Animator hitAnimator;
+    public bool isHit;
     
     protected override void Awake()
     {
@@ -16,11 +17,23 @@ public class BlueEnemy : Enemy
         hurt = new BlueEnemyHurtState();
         dead = new EnemyDeadState();
     }
-    
-     public void GetHit()
+
+    protected override void Update()
     {
-        faceDir = new Vector2(Player.Instance.playerController.Facing, 1);
-        GetComponent<Rigidbody2D>().AddForce(3f * -faceDir, ForceMode2D.Impulse);
+            base.Update();
+    }
+
+    public void GetHit()
+    {
+        Hit();
+    }
+
+    public void Hit()
+    {
+        isHit = true;
+        
+        GetComponent<Rigidbody2D>().AddForce(10f * faceDir, ForceMode2D.Impulse);
         hitAnimator.SetTrigger("Hit");
+        isHit = false;
     }
 }

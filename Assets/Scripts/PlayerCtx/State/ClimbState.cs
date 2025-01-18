@@ -28,7 +28,7 @@ public class ClimbState : PlayerState
             return EActionState.normal;
         }
         
-        if ((int)GameInput.Aim.value.x == playerController.Facing && !ClimbEnd && !playerController.ClimbTopCheck())
+        /*if ((int)GameInput.Aim.value.x == playerController.Facing && !ClimbEnd && !playerController.ClimbTopCheck())
         {
             playerController.SpeedY = Mathf.Max(0,
                 Mathf.MoveTowards(playerController.SpeedY, 0f, playerController.contants.ClimbDecreasesY * deltaTime));
@@ -37,7 +37,7 @@ public class ClimbState : PlayerState
         {
             ClimbEnd = true;
             playerController.SpeedY = 0f;
-        }
+        }*/
 
         if (playerController.SlipCheck())
         {

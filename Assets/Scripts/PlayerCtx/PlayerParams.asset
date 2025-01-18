@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerParams
   m_EditorClassIdentifier: 
   colliderSize: {x: 0.5, y: 0.5}
-  MaxDectedGround: 0.3
+  MaxDectedGround: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -51,6 +51,6 @@ MonoBehaviour:
   ClimbSpeed: 2
   ClimbCooldownTimer: 0
   ClimbDecreasesY: 1
-  ClimbHopX: 10
-  ClimbHopY: 12
+  ClimbHopX: 12
+  ClimbHopY: 14
   ClimbHopForceTime: 0.2

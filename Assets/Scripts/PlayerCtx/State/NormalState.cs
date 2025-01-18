@@ -13,11 +13,11 @@ public class NormalState : PlayerState
     public override EActionState Update(float deltaTime)
     {
        // Debug.Log("Normal State");
-        if (playerController.ClimbCheck(playerController.Facing) && (int)GameInput.Aim.value.x == playerController.Facing && playerController.ClimbCooldownTimer <= 0)
+        /*if (playerController.ClimbCheck(playerController.Facing) && (int)GameInput.Aim.value.x == playerController.Facing && playerController.ClimbCooldownTimer <= 0)
         {
             if (!playerController.ClimbTopCheck())
                 return EActionState.climb;
-        }
+        }*/
 
         if (playerController.CanDash)
         {

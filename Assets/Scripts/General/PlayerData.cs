@@ -66,8 +66,8 @@ public class PlayerData : MonoBehaviour
 
     public void GameStart()
     {
-        transform.position = loadSceneSO.PlayerData.PlayerPosition;
-        character.currentHealth = loadSceneSO.PlayerData.PlayerCurrentHealth;
+        transform.position = loadSceneSO.DefaultPlayerData.PlayerPosition;
+        character.currentHealth = loadSceneSO.DefaultPlayerData.PlayerCurrentHealth;
     }
 
     /*[UnityEditor.MenuItem("Developer/Delete Player Data Prefs")]

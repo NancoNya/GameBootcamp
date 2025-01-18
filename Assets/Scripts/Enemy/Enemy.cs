@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     public  Animator anim;
     public PhysicsCheck physicsCheck;
 
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
     public float attackPower;
     public float defensePower;
     
-  
+    public AudioSource audioSource;
 
     protected virtual void Awake()
     {
@@ -190,12 +190,12 @@ public class Enemy : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void PlayEnemyAttack1() => AudioManager.Instance.PlayenemyAttack1();
+    public void PlayEnemyAttack1() => AudioManager.Instance.PlayenemyAttack1(audioSource);
 
-    public void PlayEnemyAttack2() => AudioManager.Instance.PlayenemyAttack2();
-    public void PlayEnemyAttack3() => AudioManager.Instance.PlayenemyAttack3();
-    public void PlayEnemyHurt1() => AudioManager.Instance.PlayenemyHurt1();
-    public void PlayEnemyHurt2() => AudioManager.Instance.PlayenemyHurt2();
-    public void PlayEnemyHurt3() => AudioManager.Instance.PlayenemyHurt3();
-    public void PlayEnemyRun() => AudioManager.Instance.PlayenemyRun();
+    public void PlayEnemyAttack2() => AudioManager.Instance.PlayenemyAttack2(audioSource);
+    public void PlayEnemyAttack3() => AudioManager.Instance.PlayenemyAttack3(audioSource);
+    public void PlayEnemyHurt1() => AudioManager.Instance.PlayenemyHurt1(audioSource);
+    public void PlayEnemyHurt2() => AudioManager.Instance.PlayenemyHurt2(audioSource);
+    public void PlayEnemyHurt3() => AudioManager.Instance.PlayenemyHurt3(audioSource);
+    public void PlayEnemyRun() => AudioManager.Instance.PlayenemyRun(audioSource);
 }

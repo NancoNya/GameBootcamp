@@ -20,11 +20,13 @@ public class PowerUpSystem : MonoBehaviour
     [Header("特殊系统状态")]
     public bool canTrigger = true;
     public float timer;
-    public float triggerDuration; //持续时间
+    private float triggerDuration; //持续时间
 
     private void Start()
     {
         playerCharacter = Player.Instance.gameObject.GetComponent<Character>();
+        background1 = GameObject.FindGameObjectWithTag("BackGround1");
+        triggerDuration = 10f;
 
         //存储初始值
         playerInitialAttack = playerCharacter.attackPower;
@@ -40,6 +42,7 @@ public class PowerUpSystem : MonoBehaviour
             // 触发功能
             canTrigger = false;
             background1.SetActive(false);
+            Debug.Log("已移除背景一");
 
             // 修改 Player 属性
             playerCharacter.attackPower = playerInitialAttack * 1.25f;

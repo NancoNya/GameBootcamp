@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     public  Animator anim;
     public PhysicsCheck physicsCheck;
+    public Transform enemyPosition;
 
     [Header("移动参数")]
     public float normalSpeed;
@@ -62,6 +63,7 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        enemyPosition = GetComponent<Transform>();
         physicsCheck = GetComponent<PhysicsCheck>();
         currentSpeed = normalSpeed;
     }

@@ -90,8 +90,9 @@ public class Player : MonoSigleton<Player>,IEffectControl
     public IEnumerator HurtFoce(float hurtDirection)
     {
         isHit = true;
-        playerRigidbody.velocity = new Vector2(20f * hurtDirection, 1);
-        yield return new WaitForSeconds(0.1f);
+        playerRigidbody.velocity = new Vector2(12f * hurtDirection, 1);
+        yield return new WaitForSeconds(0.5f);
+        playerRigidbody.velocity = new Vector2(0,0);
         isHit = false;
     }
 

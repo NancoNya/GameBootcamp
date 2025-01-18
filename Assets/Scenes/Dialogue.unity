@@ -218,8 +218,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9446d7e97552bdb42b237ba38f8a18d0, type: 2}
-  m_sharedMaterial: {fileID: 2939409591384068033, guid: 9446d7e97552bdb42b237ba38f8a18d0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
+  m_sharedMaterial: {fileID: -6810475495846246001, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -924,8 +924,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u70B9\u51FB\u7A7A\u683C\u8DF3\u8FC7"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9446d7e97552bdb42b237ba38f8a18d0, type: 2}
-  m_sharedMaterial: {fileID: 2939409591384068033, guid: 9446d7e97552bdb42b237ba38f8a18d0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

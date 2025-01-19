@@ -34,4 +34,6 @@ public class AnimationPara : MonoBehaviour
     public void PlayRedReady() => Player.Instance.PlayRedAttack();
     public void PlayRedTail() => Player.Instance.PlayRedTail();
 
+    public void PlayAfterDie() => Player.Instance.AfterDie();
+
 }

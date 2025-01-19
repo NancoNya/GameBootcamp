@@ -121,6 +121,12 @@ public class Player : MonoSigleton<Player>,IEffectControl
     
     public void PlayRedTail() => RedTail.SetTrigger("RedTail");
 
+    public void AfterDie()
+    {
+        transform.tag = "Untagged";
+        playerRigidbody.bodyType = RigidbodyType2D.Static;
+    }
+
     private IEnumerator QRedDash()
     {
         stop = true;

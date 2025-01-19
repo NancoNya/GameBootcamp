@@ -59,16 +59,14 @@ public class Enemy : MonoBehaviour
     public AudioSource audioSource;
 
     [Header("死亡掉落道具")]
-    public GameObject buffProp;
     public GameObject HPProp1;
     public GameObject HPProp2;
     public GameObject HPProp3;
-    public GameObject killProp;
 
     //返回随机掉落道具的函数
     public GameObject SpawnRandomPrefab()
     {
-        GameObject[] prefabs = new GameObject[] { buffProp, HPProp1, HPProp2, HPProp3, killProp };
+        GameObject[] prefabs = new GameObject[] { HPProp1, HPProp2, HPProp3};
         int randomIndex = Random.Range(0, prefabs.Length);
         return Instantiate(prefabs[randomIndex]);
     }

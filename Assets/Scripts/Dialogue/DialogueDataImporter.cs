@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DialogueDataImporter : MonoBehaviour
+public class DialogueDataImporter : MonoSigleton<DialogueDataImporter>
 {
     public DialogueDataAsset[] dialogueDataAssets;
     public DialoguePanel _dialoguePanel;
@@ -98,15 +98,15 @@ public class DialogueDataImporter : MonoBehaviour
             stop();
             
             dialogueEnd = false;
-            _dialoguePanel.SetImage(me1, black);
-            if (dialogueDataAssetIndex == 0)  _dialoguePanel.SetImage(me1, black);
-            else if (dialogueDataAssetIndex == 1)  _dialoguePanel.SetImage(me2, black);
-            else if (dialogueDataAssetIndex == 2)  _dialoguePanel.SetImage(me3, black);
-            else if (dialogueDataAssetIndex == 3)  _dialoguePanel.SetImage(me4, black);
-            else if (dialogueDataAssetIndex == 4)  _dialoguePanel.SetImage(me1, black);
-            else if (dialogueDataAssetIndex == 5) _dialoguePanel.SetImage(me2, black);
-            else if (dialogueDataAssetIndex == 6) _dialoguePanel.SetImage(me3, black);
-            else if (dialogueDataAssetIndex == 7) _dialoguePanel.SetImage(me4, black);
+            _dialoguePanel.SetImage(black, me1);
+            if (dialogueDataAssetIndex == 0)  _dialoguePanel.SetImage(black, me1);
+            else if (dialogueDataAssetIndex == 1)  _dialoguePanel.SetImage(black, me2);
+            else if (dialogueDataAssetIndex == 2)  _dialoguePanel.SetImage(black, me3);
+            else if (dialogueDataAssetIndex == 3)  _dialoguePanel.SetImage(black, me4);
+            else if (dialogueDataAssetIndex == 4)  _dialoguePanel.SetImage(black, me1);
+            else if (dialogueDataAssetIndex == 5) _dialoguePanel.SetImage(black, me2);
+            else if (dialogueDataAssetIndex == 6) _dialoguePanel.SetImage(black, me3);
+            else if (dialogueDataAssetIndex == 7) _dialoguePanel.SetImage(black, me4);
             
             if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Character == "Black") _dialoguePanel.ShowCharacterRight();
             else if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Character == "Me") _dialoguePanel.ShowCharacterLeft();

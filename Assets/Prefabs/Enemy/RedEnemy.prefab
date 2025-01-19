@@ -140,7 +140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8770215550241257673}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -47.7, y: -40, z: 0}
   m_LocalScale: {x: 0.09, y: 0.09, z: 0.09}
   m_ConstrainProportionsScale: 1
@@ -190,7 +190,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -411124465, guid: 5d7d7de385dc23b4d8ee476b8e6c4928, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -360,11 +360,9 @@ MonoBehaviour:
   attackPower: 0
   defensePower: 0
   audioSource: {fileID: 5270143160081660343}
-  buffProp: {fileID: 0}
   HPProp1: {fileID: 0}
   HPProp2: {fileID: 0}
-  HPProp3: {fileID: 0}
-  killProp: {fileID: 0}
+  HPProp3: {fileID: 2877083821469868808, guid: f1d812cd7c26afb41970917e528a486e, type: 3}
   hitAnimator: {fileID: 7189390429705713243}
 --- !u!114 &6695873799302990518
 MonoBehaviour:

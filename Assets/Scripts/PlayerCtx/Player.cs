@@ -73,7 +73,7 @@ public class Player : MonoSigleton<Player>,IEffectControl
 
     private void FixedUpdate()
     {
-        if (!Dead)
+        if (!Dead && !stop)
          playerController.FixedUpdate();
     }
 
@@ -153,7 +153,7 @@ public class Player : MonoSigleton<Player>,IEffectControl
         animator.SetTrigger("RedAttack");
         yield return new WaitForSeconds(1.3f);
         transform.position = new Vector2(transform.position.x + playerController.Facing * 4f, transform.position.y);
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(0.5f);
         stop = false;
         _character.invulnerable = false;
     }

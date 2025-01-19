@@ -35,24 +35,24 @@ public class DialogueTrigger : MonoSigleton<DialogueTrigger>
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (dialogueImporter.dialogueEnd && !dialogue6)
+            if (dialogueImporter != null && dialogueImporter.dialogueEnd && !dialogue6)
             {
                 dialogueIndex = 6;
                 PlayDialogue1();
             }
-            else if (dialogueImporter.dialogueEnd && !dialogue7)
+            else if (dialogueImporter != null && dialogueImporter.dialogueEnd && !dialogue7)
             {
                 dialogueIndex = 7;
                 PlayDialogue1();
             }
         }
         //Debug.Log(dialogue0);
-        if (dialogueImporter.dialogueEnd && !dialogue0)
+        if (dialogueImporter != null && dialogueImporter.dialogueEnd && !dialogue0)
         {
             dialogueIndex = 0;
             PlayDialogue1();
         }
-        else if (dialogueImporter.dialogueEnd && !dialogue1)
+        else if (dialogueImporter != null && dialogueImporter.dialogueEnd && !dialogue1)
         {
             dialogueIndex = 1;
             PlayDialogue1();
@@ -64,17 +64,17 @@ public class DialogueTrigger : MonoSigleton<DialogueTrigger>
 
         if (CanPlayDialogue2)
         {
-            if (dialogueImporter.dialogueEnd && !dialogue2)
+            if (dialogueImporter != null && dialogueImporter.dialogueEnd && !dialogue2)
             {
                 dialogueIndex = 2;
                 PlayDialogue2();
             }
-            else if (dialogueImporter.dialogueEnd && !dialogue4)
+            else if (dialogueImporter != null && dialogueImporter.dialogueEnd && !dialogue4)
             {
                 dialogueIndex = 4;
                 PlayDialogue2();
             }
-            else if (dialogueImporter.dialogueEnd && !dialogue5)
+            else if (dialogueImporter != null && dialogueImporter.dialogueEnd && !dialogue5)
             {
                 dialogueIndex = 5;
                 PlayDialogue2();

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ExitGame : MonoBehaviour
@@ -14,10 +15,6 @@ public class ExitGame : MonoBehaviour
    
        void QuitGame()
        {
-           #if UNITY_EDITOR
-               UnityEditor.EditorApplication.isPlaying = false;
-           #else
-               Application.Quit();
-           #endif
+           SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
        }
 }

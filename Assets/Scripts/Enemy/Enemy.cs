@@ -202,7 +202,7 @@ public class Enemy : MonoBehaviour
     public void EnemyDead()
     {
         // 存储预制体的数组
-        GameObject[] prefabs = new GameObject[] { buffProp, HPProp1, HPProp2, HPProp3, killProp };
+        GameObject[] prefabs = new GameObject[] { HPProp1, HPProp2, HPProp3};
 
         // 生成一个 0 到 4 的随机索引
         int randomIndex = Random.Range(0, prefabs.Length);

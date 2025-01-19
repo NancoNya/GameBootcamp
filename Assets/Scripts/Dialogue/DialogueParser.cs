@@ -16,7 +16,8 @@ public class DialogueParser : MonoBehaviour
 
     public void ParseFile()
     {
-        string filePath = "E:/UnityProgram/GameBoot/Assets/ACT文本.txt";
+        //string filePath = "E:/UnityProgram/GameBoot/Assets/ACT文本.txt";
+        string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
         Debug.Log(filePath);
 
         if (!File.Exists(filePath))

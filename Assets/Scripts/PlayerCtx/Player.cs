@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -19,7 +20,6 @@ public class Player : MonoSigleton<Player>,IEffectControl
     public bool isHit;
     public bool stop;
     
-
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
@@ -37,6 +37,11 @@ public class Player : MonoSigleton<Player>,IEffectControl
     {
         float deltaTime = Time.unscaledDeltaTime;
 
+        if (_character.currentHealth < _character.maxHealth * 0.4f)
+        {
+            StartCoroutine(PlayHeartBreak());
+        }
+        
         if (Input.GetKeyDown(KeyCode.Z) && !stop)
         {
             StartCoroutine(QRedDash());
@@ -70,6 +75,18 @@ public class Player : MonoSigleton<Player>,IEffectControl
     {
         if (!Dead)
          playerController.FixedUpdate();
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("buff"))
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                other.GetComponent<IPropPickup>().Pickup(gameObject);
+                Destroy(other.gameObject);
+            }
+        }
     }
 
     public bool UpdateTime(float deltaTime)
@@ -150,5 +167,11 @@ public class Player : MonoSigleton<Player>,IEffectControl
         yield return new WaitForSeconds(1.3f);
         stop = false;
         _character.invulnerable = false;
+    }
+
+    private IEnumerator PlayHeartBreak()
+    {
+        AudioManager.Instance.PlayHeartBreak();
+        yield return new WaitForSeconds(5f);
     }
 }

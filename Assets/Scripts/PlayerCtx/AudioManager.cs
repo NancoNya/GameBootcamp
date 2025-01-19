@@ -29,6 +29,8 @@ public class AudioManager : MonoSigleton<AudioManager>
    public AudioClip enemyHurt3;
    public AudioClip enemyRun;
 
+   public AudioClip ClipSetting;
+
    public void Start()
    {
       BGMSource.clip = BGM;
@@ -74,8 +76,8 @@ public class AudioManager : MonoSigleton<AudioManager>
 
    public void PlayenemyRun(AudioSource resource)
    {
-      resource.clip = run;
-      resource.Play();
+      /*resource.clip = run;
+      resource.Play();*/
    }
   
    public void Playattack1()
@@ -115,6 +117,7 @@ public class AudioManager : MonoSigleton<AudioManager>
 
    public void PlayHeartBreak()
    {
-      audioSource.PlayOneShot(HeartBreak);
+      HeartBreakSource.clip = HeartBreak;
+      HeartBreakSource.Play();
    }
 }

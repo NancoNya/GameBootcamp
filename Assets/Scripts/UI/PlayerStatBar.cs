@@ -16,6 +16,8 @@ public class PlayerStatBar : MonoBehaviour
     private bool isRecovering;
     private void Update()
     {
+        healthImage.fillAmount = Player.Instance.gameObject.GetComponent<Character>().currentHealth / Player.Instance.gameObject.GetComponent<Character>().maxHealth;
+        
         if (healthDelayImage.fillAmount > healthImage.fillAmount)
         {
             healthDelayImage.fillAmount -= Time.deltaTime;
@@ -31,7 +33,7 @@ public class PlayerStatBar : MonoBehaviour
     /// <param name="persentage">百分比：Current/Max</param>
     public void OnHealthChange(float persentage)
     {
-        healthImage.fillAmount = persentage;
+       
     }
 
     public void OnSkillChange()

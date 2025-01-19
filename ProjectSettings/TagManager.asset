@@ -12,6 +12,7 @@ TagManager:
   - HPProp3
   - killProp
   - buffProp
+  - buff
   layers:
   - Default
   - TransparentFX

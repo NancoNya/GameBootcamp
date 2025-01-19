@@ -874,12 +874,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
-  m_sharedMaterial: {fileID: 3255325097255756689, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4c2680524d8be97419607478ec922d0e, type: 2}
+  m_sharedMaterial: {fileID: 4923668218285006303, guid: 4c2680524d8be97419607478ec922d0e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13526,8 +13524,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u70B9\u51FB\u7A7A\u683C\u8DF3\u8FC7"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
-  m_sharedMaterial: {fileID: 3255325097255756689, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4c2680524d8be97419607478ec922d0e, type: 2}
+  m_sharedMaterial: {fileID: 4923668218285006303, guid: 4c2680524d8be97419607478ec922d0e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14210,64 +14208,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1799143201607194273, guid: d729ab7895d626f4db468e3a142a5f7b, type: 3}
   m_PrefabInstance: {fileID: 2008916182}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2014205402
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2014205404}
-  - component: {fileID: 2014205403}
-  m_Layer: 0
-  m_Name: DialogueTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2014205403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014205402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4324e5d0c93232645bd9fde1d1462eea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  global: 0
-  dialogueIndex: 0
-  ProdialogueEnd: 0
-  dialogue0: 0
-  dialogue1: 0
-  dialogue2: 0
-  dialogue3: 0
-  dialogue4: 0
-  dialogue5: 0
-  dialogue6: 0
-  dialogue7: 0
-  CanPlayDialogue2: 0
-  DialogueObject: {fileID: 0}
-  dialogueImporter: {fileID: 0}
---- !u!4 &2014205404
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014205402}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2027330115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16026,7 +15966,6 @@ SceneRoots:
   - {fileID: 2060655418}
   - {fileID: 258792397}
   - {fileID: 650542197}
-  - {fileID: 2014205404}
   - {fileID: 243369829}
   - {fileID: 1766637490}
   - {fileID: 318685075}

@@ -52,7 +52,7 @@ public class DialogueDataImporter : MonoBehaviour
     /// <summary>
     /// 针对序章的播放
     /// </summary>
-    public void PlayProglue()
+    public void PlayProglue() 
     {
         if ((Input.GetKeyDown(KeyCode.Space) || TheFirst) && !ProglueEnd && _dialogueScript.chapters[0].lines[linesIndex].content != "旁白" && _dialoguePanel.dialogueEnd)
         {
@@ -98,7 +98,16 @@ public class DialogueDataImporter : MonoBehaviour
             stop();
             
             dialogueEnd = false;
-            _dialoguePanel.SetImage(me, black);
+            _dialoguePanel.SetImage(me1, black);
+            if (dialogueDataAssetIndex == 0)  _dialoguePanel.SetImage(me1, black);
+            else if (dialogueDataAssetIndex == 1)  _dialoguePanel.SetImage(me2, black);
+            else if (dialogueDataAssetIndex == 2)  _dialoguePanel.SetImage(me3, black);
+            else if (dialogueDataAssetIndex == 3)  _dialoguePanel.SetImage(me4, black);
+            else if (dialogueDataAssetIndex == 4)  _dialoguePanel.SetImage(me1, black);
+            else if (dialogueDataAssetIndex == 5) _dialoguePanel.SetImage(me2, black);
+            else if (dialogueDataAssetIndex == 6) _dialoguePanel.SetImage(me3, black);
+            else if (dialogueDataAssetIndex == 7) _dialoguePanel.SetImage(me4, black);
+            
             if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Character == "Black") _dialoguePanel.ShowCharacterRight();
             else if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Character == "Me") _dialoguePanel.ShowCharacterLeft();
             else
@@ -125,13 +134,12 @@ public class DialogueDataImporter : MonoBehaviour
             //退出
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                play();
-               
                 index = 0;
                 dialogueEnd = true;
                 TheFirst = true;
                 GameInput.RefreshAllButtons();
                 gameObject.SetActive(false);
+                play();
             }
         }
     }

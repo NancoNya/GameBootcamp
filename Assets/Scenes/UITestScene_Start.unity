@@ -1430,7 +1430,7 @@ MonoBehaviour:
   m_text: "\u7279\u522B\u9E23\u8C22"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
-  m_sharedMaterial: {fileID: -6810475495846246001, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
+  m_sharedMaterial: {fileID: 3255325097255756689, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1659,6 +1659,8 @@ MonoBehaviour:
   currentHealth: 0
   attackPower: 0
   defensePower: 0
+  currentSkill: 100
+  currentFiniteSkill: 100
   invulnerableDuration: 1
   invulnerable: 0
   hurtTime: 0
@@ -1704,10 +1706,13 @@ MonoBehaviour:
   boxCollider: {fileID: 0}
   playerRigidbody: {fileID: 0}
   animator: {fileID: 0}
+  RedAttack: {fileID: 0}
+  RedTail: {fileID: 0}
   contants: {fileID: 11400000, guid: 673ddb09535def140bb5f52ad3b3a5f1, type: 2}
   FreezeCooldownTimer: 0
   Dead: 0
   isHit: 0
+  stop: 0
 --- !u!50 &1142520991
 Rigidbody2D:
   serializedVersion: 4
@@ -2002,7 +2007,7 @@ MonoBehaviour:
     Samurai'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
-  m_sharedMaterial: {fileID: -6810475495846246001, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
+  m_sharedMaterial: {fileID: 3255325097255756689, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2102,7 +2107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.4, y: 0.4}
+  m_AnchoredPosition: {x: 5.3, y: 0.4}
   m_SizeDelta: {x: 363.57, y: 351.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1721725469
@@ -2136,7 +2141,7 @@ MonoBehaviour:
   m_text: "\n\n\u7B56\u5212\uFF1A\u9CB2\n\n\u7A0B\u5E8F\uFF1A\u6D45\u68A6\uFF0CLianna\uFF0Cecho\n\n\u7F8E\u672F\uFF1ABamboo\n,\u80E1\u6850\uFF0C\u67A3\u3001"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
-  m_sharedMaterial: {fileID: -6810475495846246001, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
+  m_sharedMaterial: {fileID: 3255325097255756689, guid: f66a2534476e8664da1adf5bbdf10b5d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

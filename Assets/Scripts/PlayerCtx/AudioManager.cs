@@ -120,4 +120,10 @@ public class AudioManager : MonoSigleton<AudioManager>
       HeartBreakSource.clip = HeartBreak;
       HeartBreakSource.Play();
    }
+
+   public void PlayClipSetting()
+   {
+      audioSource2.clip = ClipSetting;
+      audioSource2.Play();
+   }
 }

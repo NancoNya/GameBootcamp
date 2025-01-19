@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 871507278843313869}
   - component: {fileID: 6695873799302990518}
   - component: {fileID: 5270143160081660343}
+  - component: {fileID: 8751447551570334601}
   m_Layer: 7
   m_Name: RedEnemy
   m_TagString: Enemy
@@ -292,7 +293,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &3367451514428286009
 MonoBehaviour:
@@ -331,6 +332,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   anim: {fileID: 0}
   physicsCheck: {fileID: 0}
+  enemyPosition: {x: 0, y: 0, z: 0}
+  dropPropPosition: {x: 0, y: 0, z: 0}
   normalSpeed: 6
   chaseSpeed: 10
   currentSpeed: 0
@@ -357,6 +360,11 @@ MonoBehaviour:
   attackPower: 0
   defensePower: 0
   audioSource: {fileID: 5270143160081660343}
+  buffProp: {fileID: 0}
+  HPProp1: {fileID: 0}
+  HPProp2: {fileID: 0}
+  HPProp3: {fileID: 0}
+  killProp: {fileID: 0}
   hitAnimator: {fileID: 7189390429705713243}
 --- !u!114 &6695873799302990518
 MonoBehaviour:
@@ -374,6 +382,8 @@ MonoBehaviour:
   currentHealth: 0
   attackPower: 0
   defensePower: 0
+  currentSkill: 100
+  currentFiniteSkill: 100
   invulnerableDuration: 1
   invulnerable: 0
   hurtTime: 0
@@ -523,6 +533,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &8751447551570334601
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8770215550241257673}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 20.03906}
+  serializedVersion: 2
+  m_Radius: 20.03906
 --- !u!1 &8793375682119571916
 GameObject:
   m_ObjectHideFlags: 0

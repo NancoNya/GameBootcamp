@@ -432,6 +432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 31560449}
   - component: {fileID: 31560450}
+  - component: {fileID: 31560451}
   m_Layer: 8
   m_Name: RedAttack
   m_TagString: Untagged
@@ -466,7 +467,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -498,12 +499,28 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
+    - - {x: 0.29203415, y: 1.4521828}
+      - {x: -2.1448889, y: 0.69813895}
+      - {x: 0.1310907, y: 0.3156854}
+      - {x: 0.90295947, y: 0.27960992}
+      - {x: 1.9196959, y: 0.86493295}
   m_UseDelaunayMesh: 0
+--- !u!114 &31560451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31560448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01836385818e914aa650785a5db6be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack:
+    transform: {fileID: 0}
+    attackPower: 0
+    attackDamage: 20
 --- !u!1001 &31999709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -643,7 +660,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 913.0001, y: 247.00015}
+  m_AnchoredPosition: {x: 913.0001, y: 364.50012}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &56882314
@@ -703,7 +720,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 56882316}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 650542196}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayClipSetting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &56882316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1496,11 +1525,11 @@ MonoBehaviour:
   me: {fileID: -1024175681, guid: 843a5f679e5033643839fa178cd9e00d, type: 3}
   A: {fileID: 21300000, guid: b7661c57360a41f479655e8cfce3936c, type: 3}
   B: {fileID: 21300000, guid: 70f11259b45e6144b96a5a40720d03ee, type: 3}
-  me1: {fileID: 21300000, guid: fd517cc945cd73f44b51f1c00d26cc0c, type: 3}
-  me2: {fileID: 21300000, guid: ff93170415b83954db2be2eb7c2cc9ce, type: 3}
-  me3: {fileID: 21300000, guid: 8c799a6ce3c868243a6f945ab18908e7, type: 3}
-  me4: {fileID: 21300000, guid: 5ec00d7447ed0184c8ed946be07bcd38, type: 3}
-  me5: {fileID: 21300000, guid: 08bcb710b4eb8fa4cadc28cc67058552, type: 3}
+  me1: {fileID: 21300000, guid: d429ec52333e7f94aacef77102f8e8d4, type: 3}
+  me2: {fileID: 21300000, guid: 28c6628fc83e99042919346c712ce76e, type: 3}
+  me3: {fileID: 21300000, guid: be147efadf2160e408f85dd9706e710c, type: 3}
+  me4: {fileID: 21300000, guid: 6c18ea835670c6941a82aa8282e00345, type: 3}
+  me5: {fileID: 21300000, guid: c72cda99afff7b54698dce28d2d07ace, type: 3}
   playSpeed: 0.1
   TheFirst: 1
   ProglueEnd: 0
@@ -1515,7 +1544,7 @@ Transform:
   m_GameObject: {fileID: 143915648}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -960, y: -389.118, z: 0}
+  m_LocalPosition: {x: -960, y: -350, z: 0}
   m_LocalScale: {x: 1.505292, y: 1.505292, z: 1.505292}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2678,10 +2707,10 @@ Transform:
   - {fileID: 1224580242}
   - {fileID: 1062426603}
   - {fileID: 1957383339}
-  - {fileID: 1436224819}
-  - {fileID: 1727305518}
   - {fileID: 31560449}
   - {fileID: 1016336802}
+  - {fileID: 1436224819}
+  - {fileID: 1727305518}
   m_Father: {fileID: 1280972239}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &426343367
@@ -3166,6 +3195,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2131008047}
     m_Modifications:
+    - target: {fileID: 2947314713602454883, guid: 28f5766d81ebe194a918b560dddd2fe9, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4539172532148432056, guid: 28f5766d81ebe194a918b560dddd2fe9, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -3912,6 +3945,7 @@ MonoBehaviour:
   enemyHurt2: {fileID: 8300000, guid: 326ea09da82d3a1499471adf108b1cf2, type: 3}
   enemyHurt3: {fileID: 8300000, guid: 3e64e3ebf0a748a40ad1f8ef0d2aa9b1, type: 3}
   enemyRun: {fileID: 8300000, guid: 3a260550a0ceb9c4abd6001803722e25, type: 3}
+  ClipSetting: {fileID: 0}
 --- !u!4 &650542197
 Transform:
   m_ObjectHideFlags: 0
@@ -4194,7 +4228,7 @@ Transform:
   m_GameObject: {fileID: 665799637}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -51.5, y: -41.290005, z: 0}
+  m_LocalPosition: {x: 54.58, y: 6.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6148,7 +6182,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1016336802}
   - component: {fileID: 1016336803}
-  - component: {fileID: 1016336804}
   - component: {fileID: 1016336805}
   m_Layer: 8
   m_Name: ContinueAttack
@@ -6184,7 +6217,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6217,31 +6250,16 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.27751923, y: 1.7118912}
-      - {x: -1.6750097, y: 0.1521604}
-      - {x: -0.81703705, y: -0.012664676}
-      - {x: 0.74464035, y: 0.083862305}
-      - {x: 0.7929039, y: 0.047664642}
-      - {x: 0.8004265, y: 0.06349182}
-      - {x: 0.78083956, y: 0.071796656}
+      - {x: -1.4742613, y: 0.70595145}
+      - {x: -0.69935745, y: 0.3749925}
+      - {x: 0.82078934, y: 0.34691238}
+      - {x: 0.9867325, y: 0.28302383}
+      - {x: 1.0351906, y: 0.30379105}
+      - {x: 1.0427094, y: 0.26424408}
+      - {x: 1.036966, y: 0.32792306}
       - {x: 1.5587883, y: 0.3388939}
-      - {x: 1.9404631, y: 0.9485092}
+      - {x: 1.6704893, y: 0.96235275}
   m_UseDelaunayMesh: 0
---- !u!114 &1016336804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016336801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01836385818e914aa650785a5db6be7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Attack:
-    transform: {fileID: 0}
-    attackPower: 0
-    attackDamage: 20
 --- !u!114 &1016336805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6257,7 +6275,7 @@ MonoBehaviour:
   Attack:
     transform: {fileID: 0}
     attackPower: 0
-    attackDamage: 12
+    attackDamage: 20
 --- !u!1001 &1025005226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6386,7 +6404,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -7508,7 +7526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 913, y: 326}
+  m_AnchoredPosition: {x: 913, y: 443.5}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1275869741
@@ -7570,6 +7588,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1118216875}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: SetTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 650542196}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayClipSetting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7921,6 +7951,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2131008047}
     m_Modifications:
+    - target: {fileID: 684244975372604325, guid: 57a6ce78c173ae04e9ba5f4adef8ac12, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2063798608092800593, guid: 57a6ce78c173ae04e9ba5f4adef8ac12, type: 3}
       propertyPath: m_Name
       value: BlueEnemy
@@ -15332,7 +15366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -939, y: 388}
+  m_AnchoredPosition: {x: -939, y: 523}
   m_SizeDelta: {x: 400.00122, y: 303.33484}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3297388140747984904

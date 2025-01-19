@@ -42,12 +42,12 @@ public class Player : MonoSigleton<Player>,IEffectControl
             StartCoroutine(PlayHeartBreak());
         }
         
-        if (Input.GetKeyDown(KeyCode.Z) && !stop)
+        if (Input.GetKeyDown(KeyCode.Z) && !stop && _character.currentFiniteSkill > 0)
         {
             StartCoroutine(QRedDash());
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && !stop)
+        if (Input.GetKeyDown(KeyCode.Q) && !stop && _character.currentFiniteSkill > 0)
         {
             StartCoroutine(PlayRedContinue());
         }

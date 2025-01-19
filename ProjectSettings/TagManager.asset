@@ -7,6 +7,11 @@ TagManager:
   - Platform
   - Enemy
   - BackGround1
+  - HPProp1
+  - HPProp2
+  - HPProp3
+  - killProp
+  - buffProp
   layers:
   - Default
   - TransparentFX

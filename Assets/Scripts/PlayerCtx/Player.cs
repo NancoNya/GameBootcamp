@@ -130,19 +130,25 @@ public class Player : MonoSigleton<Player>,IEffectControl
 
     private IEnumerator QRedDash()
     {
+        _character.currentSkill -= 20f;
+        _character.invulnerable = true;
         stop = true;
         animator.SetTrigger("RedAttack");
         yield return new WaitForSeconds(1.3f);
-        transform.position = new Vector2(transform.position.x + playerController.Facing * 6.45f, transform.position.y);
+        transform.position = new Vector2(transform.position.x + playerController.Facing * 4f, transform.position.y);
         yield return new WaitForSeconds(2.5f);
         stop = false;
+        _character.invulnerable = false;
     }
 
     private IEnumerator PlayRedContinue()
     {
+        _character.currentFiniteSkill -= 30f;
+        _character.invulnerable = true;
         stop = true;
         animator.SetTrigger("RedContinue");
         yield return new WaitForSeconds(1.3f);
         stop = false;
+        _character.invulnerable = false;
     }
 }

@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            Debug.Log("Attack");
             AttackScene.Instance.HitPause(0.1f);
             AttackScene.Instance.CameraShake(.1f);
             collision.GetComponentInParent<Character>()?.GetDamage(Attack);

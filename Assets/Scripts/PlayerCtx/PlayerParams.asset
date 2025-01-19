@@ -41,7 +41,7 @@ MonoBehaviour:
   DashTime: 0.37
   MaxDashes: 1
   EndDashSpeed: 16
-  DashCooldown: 3
+  DashCooldown: 1
   DashRefillCooldown: 0.1
   AttackCooldownTimer: 0.2
   AttackDecreaseX: 0

@@ -12,6 +12,8 @@ public class Character : MonoBehaviour
     public float currentHealth;
     public float attackPower;
     public float defensePower;
+    public float currentSkill = 100f;
+    public float currentFiniteSkill = 100f;
 
     [Header("受伤无敌")]
     public float invulnerableDuration;

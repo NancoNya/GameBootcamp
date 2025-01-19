@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class PlayerStatBar : MonoBehaviour
 {
-    private Character currentCharacter;
+    public Character currentCharacter;
     public Image healthImage;
     public Image healthDelayImage;
 
-
+    public Image SkillImage;
+    public Image FiniteSkillImage;
+    
     private bool isRecovering;
     private void Update()
     {
@@ -18,8 +20,9 @@ public class PlayerStatBar : MonoBehaviour
         {
             healthDelayImage.fillAmount -= Time.deltaTime;
         }
-        
-        
+
+        OnSkillChange();
+        OnFiniteSkillChange();
     }
 
     /// <summary>
@@ -29,6 +32,16 @@ public class PlayerStatBar : MonoBehaviour
     public void OnHealthChange(float persentage)
     {
         healthImage.fillAmount = persentage;
+    }
+
+    public void OnSkillChange()
+    {
+        SkillImage.fillAmount = currentCharacter.currentSkill / 100f;
+    }
+
+    public void OnFiniteSkillChange()
+    {
+        FiniteSkillImage.fillAmount = currentCharacter.currentFiniteSkill / 100f;
     }
     
 

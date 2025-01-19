@@ -6,11 +6,19 @@ public class DialogueDataImporter : MonoBehaviour
     public DialogueDataAsset[] dialogueDataAssets;
     public DialoguePanel _dialoguePanel;
     public DialogueScript _dialogueScript;
+    public GameObject background;
+    public GameObject enemy;
 
     public Sprite black;
     public Sprite me;
     public Sprite A;
     public Sprite B;
+
+    public Sprite me1;
+    public Sprite me2;
+    public Sprite me3;
+    public Sprite me4;
+    public Sprite me5;
     
     private int dialogueDataAssetIndex = 0;
     private int index = 0;
@@ -20,15 +28,19 @@ public class DialogueDataImporter : MonoBehaviour
     public bool ProglueEnd = false;
     public int linesIndex;
 
+    public bool dialogueEnd;
+
     private void Start()
     {
         _dialoguePanel.SetImage();
-        dialogueDataAssetIndex = DialogueTrigger.Instance.dialogueIndex;
-        ProglueEnd = DialogueTrigger.Instance.ProdialogueEnd;
+        dialogueEnd = true;
     }
 
     private void Update()
     {
+        dialogueDataAssetIndex = DialogueTrigger.Instance.dialogueIndex;
+        ProglueEnd = DialogueTrigger.Instance.ProdialogueEnd;
+        
         if (ProglueEnd && _dialoguePanel.dialogueEnd)
             SetDialogue();
         else if (_dialoguePanel.dialogueEnd)
@@ -44,6 +56,9 @@ public class DialogueDataImporter : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.Space) || TheFirst) && !ProglueEnd && _dialogueScript.chapters[0].lines[linesIndex].content != "旁白" && _dialoguePanel.dialogueEnd)
         {
+            stop();
+            dialogueEnd = false;
+            background.SetActive(true);
             _dialoguePanel.SetImage(A, B);
             if (_dialogueScript.chapters[0].lines[linesIndex].speaker == "A") _dialoguePanel.ShowCharacterLeft();
             else if(_dialogueScript.chapters[0].lines[linesIndex].speaker == "B") _dialoguePanel.ShowCharacterRight();
@@ -60,11 +75,14 @@ public class DialogueDataImporter : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                play();
+                dialogueEnd = true;
                 ProglueEnd = true;
                 TheFirst = true;
                 DialogueTrigger.Instance.ProdialogueEnd = true;
                 GameInput.RefreshAllButtons();
-                SceneManager.UnloadSceneAsync(1);
+                background.SetActive(false);
+                gameObject.SetActive(false);
             }
         }
     }
@@ -74,8 +92,12 @@ public class DialogueDataImporter : MonoBehaviour
     /// </summary>
     public void SetDialogue()
     {
+        //Debug.Log(index);
         if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Flag == "@" && _dialoguePanel.dialogueEnd && (Input.GetKeyDown(KeyCode.Space) || TheFirst))
         {
+            stop();
+            
+            dialogueEnd = false;
             _dialoguePanel.SetImage(me, black);
             if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Character == "Black") _dialoguePanel.ShowCharacterRight();
             else if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Character == "Me") _dialoguePanel.ShowCharacterLeft();
@@ -91,14 +113,39 @@ public class DialogueDataImporter : MonoBehaviour
         }
         else if (dialogueDataAssets[dialogueDataAssetIndex].dialogueDatas[index].Flag == "end" && _dialoguePanel.dialogueEnd)
         {
+            if (dialogueDataAssetIndex == 0) DialogueTrigger.Instance.dialogue0 = true;
+            else if (dialogueDataAssetIndex == 1) DialogueTrigger.Instance.dialogue1 = true;
+            else if (dialogueDataAssetIndex == 2) DialogueTrigger.Instance.dialogue2 = true;
+            else if (dialogueDataAssetIndex == 3) DialogueTrigger.Instance.dialogue3 = true;
+            else if (dialogueDataAssetIndex == 4) DialogueTrigger.Instance.dialogue4 = true;
+            else if (dialogueDataAssetIndex == 5) DialogueTrigger.Instance.dialogue5 = true;
+            else if (dialogueDataAssetIndex == 6) DialogueTrigger.Instance.dialogue6 = true;
+            else if (dialogueDataAssetIndex == 7) DialogueTrigger.Instance.dialogue7 = true;
+            
             //退出
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                play();
+               
+                index = 0;
+                dialogueEnd = true;
                 TheFirst = true;
                 GameInput.RefreshAllButtons();
-                SceneManager.UnloadSceneAsync(1);
+                gameObject.SetActive(false);
             }
         }
+    }
+
+    public void stop()
+    {
+        AudioListener.volume = 0;
+        enemy.SetActive(false);
+    }
+
+    public void play()
+    {
+        AudioListener.volume = 1f;
+        enemy.SetActive(true);
     }
 
 

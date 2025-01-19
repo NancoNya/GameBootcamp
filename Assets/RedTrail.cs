@@ -12,8 +12,9 @@ public class RedTrail : MonoBehaviour
     private IEnumerator SetForRedTrail()
     {
         transform.parent = null;
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2.3f);
         transform.parent = Player.Instance.transform;
+        transform.position = new Vector3(Player.Instance.transform.position.x + 2.7f * Player.Instance.playerController.Facing, transform.position.y, transform.position.z);
     }
     
 }

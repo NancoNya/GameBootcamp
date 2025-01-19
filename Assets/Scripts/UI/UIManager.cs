@@ -10,9 +10,7 @@ public class UIManager : MonoBehaviour
 
     [Header("事件监听")] 
     public CharacterEventSO healthEvent;
-
-
-   
+    
     private void OnEnable()
     {
         healthEvent.OnEventRaised += OnHealthEvent;
@@ -60,15 +58,10 @@ public class UIManager : MonoBehaviour
         Player.Instance.stop = false;
     }
 
-  
-
     private void OnHealthEvent(Character character)
     {
         var persentage=character.currentHealth/character.maxHealth;
         playerStatBar.OnHealthChange(persentage);
-      
-   
     }
-   
-   
+    
 }

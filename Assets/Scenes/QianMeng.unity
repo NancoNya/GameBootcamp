@@ -4111,7 +4111,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   anim: {fileID: 1878084320}
   physicsCheck: {fileID: 0}
-  enemyPosition: {fileID: 0}
+  enemyPosition: {x: 0, y: 0, z: 0}
+  dropPropPosition: {x: 0, y: 0, z: 0}
   normalSpeed: 10
   chaseSpeed: 0
   currentSpeed: 0
@@ -4138,6 +4139,11 @@ MonoBehaviour:
   attackPower: 0
   defensePower: 0
   audioSource: {fileID: 665799648}
+  buffProp: {fileID: 3759144890943683523, guid: b736f99d2b108aa45bc9af4f8819d538, type: 3}
+  HPProp1: {fileID: 6569780657230696748, guid: 99e236fabbbd636468a4d607760efb94, type: 3}
+  HPProp2: {fileID: 2942601326226074664, guid: f41b12e2ba699804b91f91aa8b55d6ba, type: 3}
+  HPProp3: {fileID: 2877083821469868808, guid: f1d812cd7c26afb41970917e528a486e, type: 3}
+  killProp: {fileID: 6623205174070933943, guid: b9cd15b04395a4040adf6ae3444ab29e, type: 3}
   attack2:
     transform: {fileID: 0}
     attackPower: 0
@@ -7382,7 +7388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4009895352281645014, guid: 57a6ce78c173ae04e9ba5f4adef8ac12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -31.492147
+      value: -43.83
       objectReference: {fileID: 0}
     - target: {fileID: 4009895352281645014, guid: 57a6ce78c173ae04e9ba5f4adef8ac12, type: 3}
       propertyPath: m_LocalPosition.z

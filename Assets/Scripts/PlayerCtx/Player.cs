@@ -125,6 +125,7 @@ public class Player : MonoSigleton<Player>,IEffectControl
     {
         transform.tag = "Untagged";
         playerRigidbody.bodyType = RigidbodyType2D.Static;
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
     private IEnumerator QRedDash()

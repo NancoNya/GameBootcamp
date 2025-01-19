@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 489611107345847363}
   - component: {fileID: 3385563119595285383}
   - component: {fileID: 1810560764307891527}
+  - component: {fileID: 1271700803834513266}
+  - component: {fileID: 1644990241218647589}
   m_Layer: 0
   m_Name: buffProp
   m_TagString: Untagged
@@ -106,3 +108,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1271700803834513266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759144890943683523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfeb8d93471890458c456b12678a897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1644990241218647589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759144890943683523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763deb362a696f143b181bc609c92fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInTrigger: 0
+  player: {fileID: 0}
